@@ -5,10 +5,10 @@ import Footer from "../templates/footer/Footer";
 
 export default function HomeLayout() {
   return (
-    <>
+    <main className="container">
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </main>
   );
 }
