@@ -100,8 +100,6 @@ body {
   box-shadow: var(--box-shadow);
   border: thin solid var(--accent);
   overflow: hidden;
-  flex-grow: 0;
-  flex-shrink: 1;
 }
 
 .line-break {

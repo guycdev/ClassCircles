@@ -12,6 +12,7 @@ export default function BackgroundCircles() {
           width: 30 * i,
           height: 30 * i,
         }}
+        key={i}
       ></div>
     );
   }

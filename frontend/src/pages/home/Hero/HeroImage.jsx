@@ -7,7 +7,7 @@ export default function HeroImage(props) {
 
   return (
     <motion.div
-      class="card"
+      className="card"
       initial={{
         x: 1250,
       }}
@@ -19,10 +19,10 @@ export default function HeroImage(props) {
         },
       }}
     >
-      <img src={img} class="card-img-top p-3" alt="..." />
-      <div class="card-body d-flex flex-column justify-content-center align-items-center gap-1">
-        <h5 class="card-title text-center">{heading}</h5>
-        <p class="card-text">{text}</p>
+      <img src={img} className="card-img-top p-3" alt="..." />
+      <div className="card-body d-flex flex-column justify-content-center align-items-center gap-1">
+        <h5 className="card-title text-center">{heading}</h5>
+        <p className="card-text">{text}</p>
         <Button content={buttonText} style="primaryBtn" />
       </div>
     </motion.div>
