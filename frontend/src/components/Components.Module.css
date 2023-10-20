@@ -77,3 +77,45 @@
   z-index: 1;
   transition: all 0.3s;
 }
+
+.accordionContainer {
+  background-color: var(--secondary);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--primary);
+  cursor: pointer;
+}
+
+.accordionContainer * {
+  transition: all 0.3s;
+}
+
+.active .headingContainer {
+  background-color: var(--primary);
+  border-bottom: 1px solid grey;
+}
+
+.headingContainer,
+.contentContainer {
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.accordionTitles {
+  display: flex;
+  gap: 20px;
+}
+
+.accordionTitles svg {
+  width: 20px;
+  height: 20px;
+}
+
+.content {
+  transition: all 0.3s;
+}
+
+.headingContainer {
+  display: flex;
+  justify-content: space-between;
+}
