@@ -3,5 +3,6 @@
   padding: 32px; 
   min-width: 300px;
   max-width: 300px;
+  box-shadow: var(--box-shadow);
   border-color: var(--accent);
 }

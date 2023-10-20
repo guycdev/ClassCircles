@@ -1,40 +1,55 @@
 import React from "react";
+import Logo from "../../components/Logo";
+import ContactForm from "./ContactForm";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
-      <div>
-        <img src="#" alt="app logo" />
-        <p>
-          This website started as a creation for the 2023 Fall Hackathon
-          sponsored by the Hackathon Club at Oregon State University. Some more
-          text here might include further, more formal details about the
-          background of this app.
+    <footer className={`row ${styles.footer}`}>
+      <div className={`col-lg col-5 py-2 ${styles.col}`}>
+        <Logo />
+        <p className="mt-2">
+          Welcome to StudySpheres, your gateway to successful collaboration and
+          academic excellence. We're here to help you find like-minded peers and
+          create study groups that work for you. With StudySpheres, you can
+          connect, learn, and excel together.
         </p>
       </div>
 
-      <div>
-        <h2>Contact Information</h2>
-        <a href="#">Link to GitHub 1</a>
-        <a href="#">Link to GitHub 2</a>
-        <a href="#">Link to GitHub 3</a>
-        <a href="#">Link to GitHub 4</a>
+      <div className={`col-lg py-2${styles.col}`}>
+        <h2 className={styles.header}>Contact Information</h2>
+        <ul className={styles.list}>
+          <li className={styles.listItem}>
+            <a href="#">Link to GitHub 1</a>
+          </li>
+          <li className={styles.listItem}>
+            <a href="#">Link to GitHub 1</a>
+          </li>
+          <li className={styles.listItem}>
+            <a href="#">Link to GitHub 1</a>
+          </li>
+        </ul>
       </div>
-      <div>
-        <h2>Links (Not in Nav)</h2>
-        <a href="#">Link 1</a>
-        <a href="#">Link 1</a>
-        <a href="#">Link 1</a>
-        <a href="#">Link 1</a>
+      <div className={`col-lg py-2${styles.col}`}>
+        <h2 className={styles.header}>Sitemap</h2>
+        <ul className={styles.list}>
+          <li className={styles.listItem}>
+            <a href="#">Home</a>
+          </li>
+          <li className={styles.listItem}>
+            <a href="#">User Dashboard</a>
+          </li>
+          <li className={styles.listItem}>
+            <a href="#">Groups</a>
+          </li>
+          <li className={styles.listItem}>
+            <a href="#">Schools</a>
+          </li>
+        </ul>
       </div>
-      <div>
-        <h2>Let us know what you think!</h2>
-        <form>
-          <input type="email" />
-          <input type="textarea" />
-          <button>Submit</button>
-        </form>
+      <div className={`col-lg col-5 py-2 ${styles.col}`}>
+        <h2 className={styles.header}>Let us know what you think!</h2>
+        <ContactForm />
       </div>
     </footer>
   );
