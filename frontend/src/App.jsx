@@ -8,10 +8,12 @@ import {
 import HomeLayout from "./layouts/HomeLayout";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import About from "./pages/Homepage/About";
+
 const route = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<HomeLayout />}>
-      <Route index element={<h4>im the index element</h4>} />
+      <Route index element={<About />} />
     </Route>
   )
 );
