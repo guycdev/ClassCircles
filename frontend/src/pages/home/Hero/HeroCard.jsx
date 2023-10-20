@@ -25,7 +25,7 @@ export default function HeroCard() {
         <h1 className="display-5 fw-bold text-xl-start text-sm-center">
           <AnimationText content="Empower Your Campus Life with" />{" "}
           <motion.div
-            className="d-xxl-block d-xl-inline"
+            className="d-sm-block d-xl-inline"
             initial={{
               opacity: 0,
             }}
