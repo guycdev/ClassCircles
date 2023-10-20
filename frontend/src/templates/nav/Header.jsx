@@ -28,7 +28,7 @@ export default function Header() {
         y: isMobileView ? 0 : -500,
       }}
       animate={{
-        y: isMobileView ? 0 : 20,
+        y: isMobileView ? 0 : 0,
         transition: {
           duration: 0.5,
         },

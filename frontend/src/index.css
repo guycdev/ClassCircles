@@ -39,6 +39,24 @@ body {
   background-image: url("./assets/bg/bg.svg");
   background-size: cover;
   background-repeat: no-repeat;
+  margin-top: 1rem;
+}
+
+.Typewriter {
+  display: inline;
+}
+
+.Typewriter > *:first-child {
+  display: inherit;
+  background-image: linear-gradient(
+    to right,
+    var(--primary, #f4bfc6),
+    var(--secondary, #f3d6da)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .burger-icon {
@@ -66,3 +84,37 @@ body {
   height: 2px;
   background-color: #000000;
 }
+
+.hero-image {
+  width: 300px;
+  aspect-ratio: 1/1;
+}
+
+.card-img-top {
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+}
+
+.card {
+  padding: 1rem;
+  box-shadow: var(--box-shadow);
+  border: thin solid var(--accent);
+  overflow: hidden;
+}
+
+.line-break {
+  width: 100%;
+  border-top: thin solid grey;
+  margin: 1rem 0rem;
+  z-index: 2;
+}
+
+em {
+  font-weight: 300;
+  font-style: normal;
+}
+/* 
+.row {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+} */
