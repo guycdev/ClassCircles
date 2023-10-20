@@ -1,5 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Nav() {
-  return <h1>Hi im a nav</h1>;
+  return <></>;
 }
