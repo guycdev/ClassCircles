@@ -8,7 +8,7 @@ function About() {
   return (
     <section className="container my-5">
       <div className="row justify-content-lg-end justify-content-sm-center">
-        <div className="col-lg-6 mr-auto mb-3">
+        <div className={`col-lg-6 mr-auto mb-3 card ${styles.textCard}`}>
           <h1>
             ClassCircles is your source for finding the perfect study group.
           </h1>
@@ -17,7 +17,9 @@ function About() {
             really difficult class? Use ClassCircles to find a group by school
             and course. Get started by clicking the button below!
           </p>
-          <Button content="Find a group" style="primaryBtn" />
+          <div className="d-flex justify-content-center">
+            <Button content="Find a group" style="primaryBtn" />
+          </div>
         </div>
 
         <article className={`card col-lg ${styles.aboutCards}`}>
