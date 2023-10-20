@@ -1,0 +1,96 @@
+@import "../../index.css";
+
+.navContainerDesktop {
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: var(--background);
+  box-shadow: var(--box-shadow);
+}
+
+.navContainerMobile {
+  padding: 3rem 2rem;
+}
+
+.mobileNav {
+  background-color: var(--background);
+  height: 120vh;
+  background-color: var(--background);
+  box-shadow: var(--box-shadow);
+  padding: 3rem 2rem;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: -10px;
+  z-index: 2;
+}
+
+.logoLink {
+  color: unset;
+  text-decoration: none;
+  display: flex;
+}
+
+.vertical {
+  border-left: thin solid grey;
+  margin: 0px 1.25rem;
+  height: 30px;
+}
+
+.horizontal {
+  width: 30px;
+  height: 2px;
+  border-left: thin solid grey;
+  margin: 0px 1.25rem;
+}
+
+.navItems {
+  gap: 20px;
+}
+
+.navItems > a {
+  color: inherit;
+  font-size: smaller;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navItems > a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px; /* Thickness of underline */
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent);
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.navItems > a:hover {
+  color: var(--accent);
+}
+
+.navItems > a:hover::before {
+  visibility: visible;
+  width: 100%;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.timeContainer {
+  gap: 20px;
+}
+
+.overLay {
+  width: 200vw;
+  height: 140vh;
+  background-color: white;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  top: 0;
+}

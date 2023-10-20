@@ -11,7 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const route = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<HomeLayout />}>
-      <Route index element={<h4>im the index element</h4>} />
+      <Route index element={<></>} />
     </Route>
   )
 );
