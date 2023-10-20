@@ -5,10 +5,10 @@
   padding: 1rem;
   background-color: var(--background);
   box-shadow: var(--box-shadow);
-}
-
-.navContainerMobile {
-  padding: 3rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 111;
+  border: thin solid var(--primary);
 }
 
 .mobileNav {
