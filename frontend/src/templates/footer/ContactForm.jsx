@@ -5,7 +5,7 @@ function ContactForm() {
     <>
       <form>
         <div className="form-group">
-          <label htmlFor="email">Emai Address</label>
+          <label htmlFor="email">Email Address</label>
           <input
             type="email"
             id="email"

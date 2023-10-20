@@ -1,4 +1,7 @@
 import Button from "../../../components/Button";
+import { ReactSVG } from "react-svg";
+import lineGraph from "../../../assets/data/line-graph.svg";
+import barGraph from "../../../assets/data/bar-graph.svg";
 import styles from "./About.module.css";
 
 function About() {
@@ -17,48 +20,37 @@ function About() {
           <Button content="Find a group" style="primaryBtn" />
         </div>
 
-        <article className={`card col-lg shadow ${styles.aboutCards}`}>
-          <h2>Advantage 1</h2>
+        <article className={`card col-lg ${styles.aboutCards}`}>
+          <h2>Enhanced learning</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            convallis elementum dapibus. Suspendisse et aliquam nunc, at laoreet
-            justo.
+            Working with a Study Sphere allows students to explain concepts to
+            each other and discuss complex topics.
           </p>
         </article>
-        <div className={`col-lg card col-lg shadow ${styles.aboutCards}`}>
-          <h2>Data 1</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            convallis elementum dapibus. Suspendisse et aliquam nunc, at laoreet
-            justo.
-          </p>
+        <div className={`col-lg card col-lg ${styles.aboutCards}`}>
+          <h2>Average GPA Increase</h2>
+          <ReactSVG src={lineGraph} />
         </div>
       </div>
       <div className="row justify-content-lg-end justify-content-sm-center">
         <div className={`col-lg card shadow ${styles.aboutCards}`}>
-          <h2>Advantage 2</h2>
+          <h2>Increased Motivation</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            convallis elementum dapibus. Suspendisse et aliquam nunc, at laoreet
-            justo.
+            Knowing that others are relying on you to contribute can help keep
+            everyone on track and committed to their studies.
           </p>
         </div>
 
-        <div className={`col-lg card shadow ${styles.aboutCards}`}>
-          <h2>Advantage 3</h2>
+        <div className={`col-lg card ${styles.aboutCards}`}>
+          <h2>Social Interaction</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            convallis elementum dapibus. Suspendisse et aliquam nunc, at laoreet
-            justo.
+            Study Spheres promote social interaction and can make the learning
+            process more enjoyable.
           </p>
         </div>
-        <div className={`col-lg card shadow ${styles.aboutCards}`}>
-          <h2>Data 2</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            convallis elementum dapibus. Suspendisse et aliquam nunc, at laoreet
-            justo.
-          </p>
+        <div className={`col-lg card ${styles.aboutCards}`}>
+          <h2>Hours Spent Studying</h2>
+          <ReactSVG src={barGraph} />
         </div>
       </div>
     </section>
