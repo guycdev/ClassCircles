@@ -6,7 +6,7 @@ import styles from "./Footer.module.css";
 export default function Footer() {
   return (
     <footer className={`row ${styles.footer}`}>
-      <div className={`col-lg col-5 ${styles.col}`}>
+      <div className={`col-lg col-5 py-2 ${styles.col}`}>
         <Logo />
         <p>
           This website started as a creation for the 2023 Fall Hackathon
@@ -16,7 +16,7 @@ export default function Footer() {
         </p>
       </div>
 
-      <div className={`col-lg ${styles.col}`}>
+      <div className={`col-lg py-2${styles.col}`}>
         <h2 className={styles.header}>Contact Information</h2>
         <ul className={styles.list}>
           <li className={styles.listItem}>
@@ -33,7 +33,7 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <div className={`col-lg ${styles.col}`}>
+      <div className={`col-lg py-2${styles.col}`}>
         <h2 className={styles.header}>Links (Not in Nav)</h2>
         <ul className={styles.list}>
           <li className={styles.listItem}>
@@ -50,7 +50,7 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <div className={`col-lg ${styles.col}`}>
+      <div className={`col-lg col-5 py-2 ${styles.col}`}>
         <h2 className={styles.header}>Let us know what you think!</h2>
         <ContactForm />
       </div>
