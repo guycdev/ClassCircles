@@ -1,3 +1,5 @@
+@import "../index.css";
+
 .logo {
   gap: 20px;
   transition: all 0.3s;
@@ -44,4 +46,34 @@
 .secondaryBtn:hover {
   background-color: var(--primary);
   color: var(--background);
+}
+
+.circleContainer {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  max-width: 45%;
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  box-shadow: var(--box-shadow);
+  border-radius: 50%;
+  background-color: aqua;
+}
+
+.backgroundCircle {
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 10px solid var(--primary);
+  z-index: 1;
+  transition: all 0.3s;
 }
