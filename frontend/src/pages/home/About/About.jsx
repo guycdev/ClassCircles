@@ -1,3 +1,4 @@
+import Button from "../../../components/Button";
 import styles from "./About.module.css";
 
 function About() {
@@ -13,7 +14,7 @@ function About() {
             really difficult class? Use ClassCircles to find a group by school
             and course. Get started by clicking the button below!
           </p>
-          <button className="btn btn-primary">Find a group</button>
+          <Button content="Find a group" style="primaryBtn" />
         </div>
 
         <article className={`card col-lg shadow ${styles.aboutCards}`}>

@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "../../components/Logo";
 import ContactForm from "./ContactForm";
 import styles from "./Footer.module.css";
 
@@ -6,7 +7,7 @@ export default function Footer() {
   return (
     <footer className={`row ${styles.footer}`}>
       <div className={`col-lg col-5 ${styles.col}`}>
-        <img src="#" alt="app logo" />
+        <Logo />
         <p>
           This website started as a creation for the 2023 Fall Hackathon
           sponsored by the Hackathon Club at Oregon State University. Some more
