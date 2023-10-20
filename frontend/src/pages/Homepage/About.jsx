@@ -16,7 +16,7 @@ function About() {
           <button className="btn btn-primary">Find a group</button>
         </div>
 
-        <article className={`card col-lg shadow-sm ${styles.aboutCards}`}>
+        <article className={`card col-lg shadow ${styles.aboutCards}`}>
           <h2>Advantage 1</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
@@ -24,7 +24,7 @@ function About() {
             justo.
           </p>
         </article>
-        <div className={`col-lg card col-lg shadow-sm ${styles.aboutCards}`}>
+        <div className={`col-lg card col-lg shadow ${styles.aboutCards}`}>
           <h2>Data 1</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
@@ -34,7 +34,7 @@ function About() {
         </div>
       </div>
       <div className="row justify-content-lg-end justify-content-sm-center">
-        <div className={`col-lg card shadow-sm ${styles.aboutCards}`}>
+        <div className={`col-lg card shadow ${styles.aboutCards}`}>
           <h2>Advantage 2</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
@@ -43,7 +43,7 @@ function About() {
           </p>
         </div>
 
-        <div className={`col-lg card shadow-sm ${styles.aboutCards}`}>
+        <div className={`col-lg card shadow ${styles.aboutCards}`}>
           <h2>Advantage 3</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
@@ -51,7 +51,7 @@ function About() {
             justo.
           </p>
         </div>
-        <div className={`col-lg card shadow-sm ${styles.aboutCards}`}>
+        <div className={`col-lg card shadow ${styles.aboutCards}`}>
           <h2>Data 2</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
