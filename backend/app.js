@@ -4,9 +4,12 @@ const session = require("express-session");
 // const flash = require("connect-flash"); // FIGURE OUT WHY THIS DOESN'T WORK LATER!!!!!!!!!!!!!!!!!!
 const catchAsyncError = require("./utilities/catchAsyncErrors");
 const { storeReturnTo } = require("./middleware");
+const axios = require("axios").default;
 
 // MongoDB Models
 const User = require("./models/users");
+const studentGroup = require("./models/groups");
+const recGroup = require("./models/reacreationalGroups");
 
 // Passport required packages
 const localStrategyPassport = require("passport-local"); // local authentication for passport
@@ -14,6 +17,7 @@ const passport = require("passport");
 
 // Express
 const express = require("express");
+const reacreationalGroups = require("./models/reacreationalGroups");
 const port = 3000;
 const app = express();
 
@@ -85,8 +89,6 @@ app.post(
   }),
   (req, res) => {
     // If this block is executed, user was authenticated and logged in.
-    // COME BACK TO IF WE HAVE TIME //
-    // req.flash("success", "Welcome back, (FILL IN NAME HERE)!");
     const redirectedUrl = res.locals.returnToUrl || "/"; // upon success
     if (redirectedUrl == "/login") {
       // If the user clicks the login prompt, devise way to not redirect back to 'login, go to / instead.
@@ -98,16 +100,41 @@ app.post(
   }
 );
 
-app.get("/register", (req, res) => {
-  res.render("users/register");
-});
+// app.get("/dashboard/education", (req, res) => {
+//   const {id} = req.
+// });
+
+// async function getAvatar() {
+//   try {
+//     const response = await axios.get("https://robohash.org/1212?set=set4");
+//     console.log("IT WORKED...");
+//     return response;
+//   } catch (err) {
+//     console.log("THERE WAS A FATAL ERROR WITH AXIOS...");
+//   }
+// }
 
 app.post(
   "/register",
   catchAsyncError(async (req, res, next) => {
     try {
-      const { username, email, password } = req.body;
-      const user = new User({ email, username }); // Pass in email and username from destructuring.
+      const {
+        username,
+        email,
+        password,
+        university,
+        department,
+        subjects,
+        hobbies,
+      } = req.body;
+      const user = new User({
+        email,
+        username,
+        university,
+        department,
+        subjects,
+        hobbies,
+      }); // Pass in email and username from destructuring.
       const registeredUser = await User.register(user, password); // Will hash the password, store the salts and hash result on the new user.
       req.login(registeredUser, (err) => {
         if (err) return next(err);
@@ -136,6 +163,52 @@ app.get("/logout", (req, res) => {
     // flash successful logout message.
     res.redirect("/");
   });
+});
+
+app.get("/dashboard/", (req, res) => {
+  res.send("dashboard");
+});
+
+app.get("/dashboard/studentGroups", (req, res) => {
+  res.send(
+    "PLACE THE INDEX PAGE FOR THE STUDENT GROUPS, PAGE THAT DISPLAYS STUDENT GROUPS"
+  );
+});
+
+app.get("/dashboard/studentGroups/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log(id);
+    const group = await studentGroup.findById(id).populate("users");
+    console.log(id.author);
+    console.log(group);
+    // res.render(frontend/page, { pass in the group object here - from })
+    res.send("I MADE IT TO THE SHOW PAGE FOR A PARTICULAR STUDENT GROUP");
+  } catch (err) {
+    console.log("ERROR ON THE SHOW PAGE!!!");
+    console.log(err);
+  }
+});
+
+app.get("/dashboard/recGroups", (req, res) => {
+  res.send(
+    "PLACE THE INDEX PAGE FOR THE REC GROUPS, PAGE THAT DISPLAYS REC GROUPS"
+  );
+});
+
+app.get("/dashboard/recGroups/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log(id);
+    const group = await recGroup.findById(id).populate("users");
+    console.log(id.author);
+    console.log(group);
+    // res.render(frontend/page, { pass in the group object here - from })
+    res.send("I MADE IT TO THE SHOW PAGE FOR A PARTICULAR REC GROUP");
+  } catch (err) {
+    console.log("ERROR ON THE SHOW PAGE!!!");
+    console.log(err);
+  }
 });
 
 // Testing functionality of creating a user account. Ensuring that password is salted and hashed.

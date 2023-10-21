@@ -8,11 +8,35 @@ const UserSchema = new Schema({
     required: true,
     unique: true,
   },
-  hobby: {
-    type: Array,
+  university: {
+    type: String,
+    required: true,
+  },
+  schoolLogo: {
+    type: String,
     required: false,
   },
-  university: {
+  department: {
+    type: String,
+    required: false,
+  },
+  subjects: {
+    type: Array,
+    required: true,
+  },
+  graduationYear: {
+    type: Number,
+    required: false,
+  },
+  hobbies: {
+    type: Array,
+    required: true,
+  },
+  funFact: {
+    type: String,
+    required: false,
+  },
+  avatar: {
     type: String,
     required: false,
   },

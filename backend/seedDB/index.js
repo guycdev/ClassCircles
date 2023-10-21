@@ -4,6 +4,7 @@
 
 const mongoose = require("mongoose");
 const User = require("../models/users");
+const Group = require("../models/groups");
 
 // Establish connection to MongoDB.
 const connectDB = async () => {
@@ -23,11 +24,18 @@ const seedDBUser = async () => {
 
   // Create first user.
   const newUser = new User({
-    email: "arizetocs@gmail.com",
+    email: "ari.zeto@icloud.com",
     hobby: ["Web Development", "Gaming"],
     university: "Oregon State University",
   });
+
+  const newGroup = new Group({
+    name: "test group",
+    users: ["653429ec96679b3e6f1e453c"],
+  });
+
   await newUser.save();
+  await newGroup.save();
 };
 console.log("SAVING...");
 
