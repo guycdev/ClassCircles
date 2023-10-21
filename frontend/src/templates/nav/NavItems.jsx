@@ -17,17 +17,17 @@ export default function NavItems({ type }) {
           </HashLink>
         </li>
         <li>
-          <HashLink to="#about-us">
+          <HashLink to="/#about-us">
             <AnimatedText content="About Us" />
           </HashLink>
         </li>
         <li>
-          <HashLink to="#why-us">
+          <HashLink to="/#why-us">
             <AnimatedText content="Why Us" />
           </HashLink>
         </li>
         <li>
-          <HashLink to="#contact">
+          <HashLink to="/#contact">
             <AnimatedText content="Contact Us" />
           </HashLink>
         </li>
