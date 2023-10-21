@@ -68,9 +68,7 @@ body {
   padding: 10px;
   border-radius: 10px;
   box-shadow: var(--box-shadow);
-  border: thin solid black;
   position: fixed;
-  left: 1.25rem;
   top: 0;
   margin: 10px 0px;
   z-index: 1000;
@@ -106,7 +104,7 @@ body {
   width: 100%;
   border-top: thin solid grey;
   margin: 1rem 0rem;
-  z-index: 2;
+  z-index: 1;
 }
 
 em {

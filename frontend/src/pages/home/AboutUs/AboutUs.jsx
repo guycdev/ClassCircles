@@ -10,11 +10,11 @@ export default function AboutUs() {
         <div className="col">
           <div className={`card ${styles.aboutUsCard}`}>
             <div className="container">
-              <div className="row align-items-center">
-                <div className="col-6">
+              <div className="row align-items-center flex-lg-row flex-column ">
+                <div className="col-lg-6 col-sm-12 d-none d-sm-block ">
                   <AboutUsChart />
                 </div>
-                <div className="col-6 card">
+                <div className="col-lg-6 col-sm-12 card">
                   <h2 className="underline mb-3 pb-1 border-bottom">
                     Empowering Student Communities
                   </h2>

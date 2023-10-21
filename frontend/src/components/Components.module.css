@@ -74,7 +74,6 @@
   border-radius: 50%;
   background-color: transparent;
   border: 10px solid var(--primary);
-  z-index: 1;
   transition: all 0.3s;
 }
 

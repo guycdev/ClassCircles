@@ -89,7 +89,7 @@ export const data = {
 
 export default function AboutUsChart() {
   return (
-    <div className="fullHeightContainer">
+    <div className="fullHeightContainer d-flex justify-content-center align-items-center">
       <Bar options={options} data={data} />
     </div>
   );
