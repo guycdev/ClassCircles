@@ -5,7 +5,7 @@ import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className={`row ${styles.footer}`}>
+    <footer className={`row ${styles.footer}`} id="contact">
       <div className={`col-lg col-5 py-2 ${styles.col}`}>
         <Logo />
         <p className="mt-2">

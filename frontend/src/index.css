@@ -1,7 +1,7 @@
 :root {
   --text: #120603;
   --background: #fcf2f3;
-  --primary: #f4bfc6;
+  --primary: #f1a7b0;
   --secondary: #f3d6da;
   --accent: #f4bfc6;
   --box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.25);
@@ -68,9 +68,7 @@ body {
   padding: 10px;
   border-radius: 10px;
   box-shadow: var(--box-shadow);
-  border: thin solid black;
   position: fixed;
-  left: 1.25rem;
   top: 0;
   margin: 10px 0px;
   z-index: 1000;
@@ -98,25 +96,51 @@ body {
 .card {
   padding: 1rem;
   box-shadow: var(--box-shadow);
-  border: thin solid var(--accent);
+  border: thin solid var(--accent) !important;
   overflow: hidden;
-  flex-grow: 0;
-  flex-shrink: 1;
 }
 
 .line-break {
   width: 100%;
   border-top: thin solid grey;
   margin: 1rem 0rem;
-  z-index: 2;
+  z-index: 1;
 }
 
 em {
   font-weight: 300;
   font-style: normal;
 }
-/* 
-.row {
-  padding-right: 0 !important;
-  padding-left: 0 !important;
-} */
+.rfm-marquee-container {
+  background-color: var(--secondary);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--primary);
+}
+
+.rfm-marquee-container * {
+  margin: 0rem 1rem;
+}
+
+.rfm-marquee-container svg {
+  width: 120px;
+  height: 120px;
+}
+
+.avatar {
+  background-color: var(--primary) !important;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+@media (min-width: 1350px) {
+  #home > div > div.col-xxl-6.container.p-0 > div {
+    justify-content: flex-end !important;
+  }
+}
