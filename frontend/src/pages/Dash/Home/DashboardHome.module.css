@@ -89,3 +89,7 @@
 .active {
   cursor: not-allowed;
 }
+
+.cards > div {
+  align-items: center;
+}

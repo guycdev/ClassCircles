@@ -47,7 +47,7 @@ export default function CreateForm(props) {
 
   return (
     <motion.div
-      className="col-6"
+      className="col-xxl-6 col-12"
       initial={{
         opacity: 0,
         x: 1250,

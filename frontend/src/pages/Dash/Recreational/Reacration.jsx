@@ -4,8 +4,8 @@ import CreateForm from "./CreateForm";
 
 export default function Recreation() {
   return (
-    <div className="col-9 container m-0">
-      <div className="row">
+    <div className="col-9 container ">
+      <div className="row gap-4 gap-xxl-0 justify-content-center">
         <JoinForm
           title="Join Group"
           subheading="Fill out the form to find the right group for you"

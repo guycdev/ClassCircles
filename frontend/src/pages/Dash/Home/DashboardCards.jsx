@@ -7,7 +7,9 @@ import hobbies from "../../../assets/dash/hobbie.jpg";
 
 export default function DashboardCards() {
   return (
-    <div className={`col-12 d-flex justify-content-between ${styles.cards}`}>
+    <div
+      className={`col-7 col-lg-12 d-flex justify-content-between flex-column flex-lg-row gap-4 gap-lg-0 ${styles.cards}`}
+    >
       <HeroImage
         img={sports}
         heading="Athletic Groups"

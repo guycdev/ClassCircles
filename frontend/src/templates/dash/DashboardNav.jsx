@@ -26,14 +26,14 @@ export default function DashboardNav() {
           duration: 0.7,
         },
       }}
-      className="col-3"
+      className="col-12 col-xl-3"
     >
       <Drawer variant="permanent" className={styles.navWrapper}>
-        <div className="d-flex gap-4 flex-column">
+        <div className="d-flex gap-4 flex-column justify-content-center align-items-center">
           <div id="logo-container" className="py-2 border-bottom">
             <Logo />
           </div>
-          <List className="d-flex flex-column gap-4">
+          <List className="d-flex flex-xl-column gap-4 flex-md-row flex-column">
             <NavLink
               to=""
               className={({ isActive }) => {
@@ -76,7 +76,7 @@ export default function DashboardNav() {
             </NavLink>
           </List>
         </div>
-        <List className="d-flex flex-column gap-4">
+        <List className="d-flex flex-column justify-content-center align-items-center">
           <NavLink to="..">
             <ListItem className={`${styles.dashboardNavItem} rounded`}>
               <ListItemIcon>

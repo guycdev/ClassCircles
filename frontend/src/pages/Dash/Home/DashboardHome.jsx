@@ -7,13 +7,13 @@ import { motion } from "framer-motion";
 export default function DashboardHome() {
   return (
     <div
-      className={`col-9 container d-flex flex-column justify-content-between m-0 ${styles.scrollbar}`}
+      className={`col-xl-9 col-12 container d-flex flex-column justify-content-between m-0 ${styles.scrollbar}`}
     >
-      <div className="row gap-1 mb-3">
+      <div className="row gap-1 mb-3  justify-content-center">
         <DashboardCards />
       </div>
       <motion.div
-        className="row mt-3"
+        className="row mt-3 "
         initial={{
           y: 1500,
           opacity: 0,
