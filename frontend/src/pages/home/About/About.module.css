@@ -1,13 +1,13 @@
 .aboutCards {
   box-shadow: var(--box-shadow);
   border-color: var(--accent);
-  height: 250px;
+  height: 275px;
   margin-top: 12px;
 }
 
 .textCard {
   margin-top: 12px;
-  height: 250px;
+  height: 275px;
 }
 
 .cardText {
