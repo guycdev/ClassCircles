@@ -90,7 +90,7 @@ export const data = {
 export default function AboutUsChart() {
   return (
     <div className="fullHeightContainer">
-      <Bar options={options} data={data} />;
+      <Bar options={options} data={data} />
     </div>
   );
 }
