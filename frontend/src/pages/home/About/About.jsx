@@ -8,9 +8,9 @@ function About() {
   return (
     <section className="container my-5">
       <div className="row justify-content-lg-end justify-content-sm-center">
-        <div className={`col-lg-6 mr-auto mb-3 card ${styles.textCard}`}>
-          <h1>
-            ClassCircles is your source for finding the perfect study group.
+        <div className={`col-lg-6 mr-auto mb-3 card ${styles.textCard} `}>
+          <h1 className="border-bottom pb-1">
+            ClassCircles is your source for finding the perfect study group
           </h1>
           <p>
             Looking for the perfect group of students to help you ace that
