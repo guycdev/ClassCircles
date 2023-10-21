@@ -19,9 +19,9 @@ export default function HeroImage(props) {
         },
       }}
     >
-      <img src={img} className="card-img-top p-3" alt="..." />
+      <img src={img} className="card-img-top" alt="..." />
       <div className="card-body d-flex flex-column justify-content-center align-items-center gap-1">
-        <h5 className="card-title text-center">{heading}</h5>
+        <h5 className="card-title text-center border-bottom py-1">{heading}</h5>
         <p className="card-text">{text}</p>
         <Button content={buttonText} style="primaryBtn" />
       </div>

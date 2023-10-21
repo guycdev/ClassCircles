@@ -136,7 +136,7 @@ em {
 
 .nav-wrapper {
   position: unset !important;
-  height: 80vh !important;
+  height: 85vh !important;
 }
 
 .nav-wrapper > *:first-child {
@@ -149,6 +149,7 @@ em {
   justify-content: space-between;
   flex-direction: column;
   position: unset !important;
+  background-color: var(--background);
 }
 .nav-wrapper > *:first-child > *:first-child {
   gap: 20px;
@@ -157,6 +158,7 @@ em {
 .dashboard-nav-item {
   box-shadow: var(--box-shadow);
   transition: all 0.3s;
+  background-color: white;
 }
 
 .nav-wrapper a:hover .dashboard-nav-item {

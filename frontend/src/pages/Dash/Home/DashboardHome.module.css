@@ -1,0 +1,9 @@
+.cards > *:nth-child(2) {
+  margin: 0rem 0.3rem;
+}
+
+.cards img {
+  width: 250px;
+  height: 150px;
+  object-fit: cover;
+}
