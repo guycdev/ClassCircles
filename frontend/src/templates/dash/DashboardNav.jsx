@@ -7,8 +7,8 @@ import {
   ListItemText,
 } from "@mui/material";
 import Home from "@mui/icons-material/Home";
-import JoinFull from "@mui/icons-material/JoinFull";
-import Help from "@mui/icons-material/HelpOutline";
+import School from "@mui/icons-material/School";
+import Sports from "@mui/icons-material/SportsBasketball";
 import Logo from "../../components/Logo";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -49,29 +49,29 @@ export default function DashboardNav() {
               </ListItem>
             </NavLink>
             <NavLink
-              to="join"
+              to="education"
               className={({ isActive }) => {
                 return isActive ? styles.activeDashboardSelection : "";
               }}
             >
               <ListItem className={`${styles.dashboardNavItem} rounded`}>
                 <ListItemIcon>
-                  <JoinFull />
+                  <School />
                 </ListItemIcon>
-                <ListItemText primary="Join" />
+                <ListItemText primary="Education" />
               </ListItem>
             </NavLink>
             <NavLink
-              to="support"
+              to="recreation"
               className={({ isActive }) => {
                 return isActive ? styles.activeDashboardSelection : "";
               }}
             >
               <ListItem className={`${styles.dashboardNavItem} rounded`}>
                 <ListItemIcon>
-                  <Help />
+                  <Sports />
                 </ListItemIcon>
-                <ListItemText primary="Support" />
+                <ListItemText primary="Athletics & Recreational" />
               </ListItem>
             </NavLink>
           </List>

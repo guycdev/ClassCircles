@@ -1,9 +1,8 @@
 import React from "react";
 import JoinForm from "./JoinForm";
 import CreateForm from "./CreateForm";
-import { motion } from "framer-motion";
 
-export default function Join() {
+export default function Recreation() {
   return (
     <div className="col-9 container m-0">
       <div className="row">
