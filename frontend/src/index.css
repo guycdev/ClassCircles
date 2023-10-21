@@ -113,8 +113,19 @@ em {
   font-weight: 300;
   font-style: normal;
 }
-/* 
-.row {
-  padding-right: 0 !important;
-  padding-left: 0 !important;
-} */
+.rfm-marquee-container {
+  background-color: var(--secondary);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--primary);
+}
+
+.rfm-marquee-container * {
+  margin: 0rem 1rem;
+}
+
+.rfm-marquee-container svg {
+  width: 120px;
+  height: 120px;
+}

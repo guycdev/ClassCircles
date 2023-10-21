@@ -14,6 +14,7 @@
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.6.2",
     "react-router-dom": "^6.17.0",
     "react-svg": "^16.1.29",
     "typewriter-effect": "^2.21.0"
