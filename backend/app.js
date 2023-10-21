@@ -6,7 +6,7 @@ const catchAsyncError = require("./utilities/catchAsyncErrors");
 const { storeReturnTo } = require("./middleware");
 const axios = require("axios").default;
 
-// MongoDB Models
+// MongoDB Modelss
 const User = require("./models/users");
 const studentGroup = require("./models/groups");
 const recGroup = require("./models/reacreationalGroups");
