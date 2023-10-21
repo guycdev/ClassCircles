@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./DashboardHome.module.css";
-import { ListItemIcon } from "@mui/material";
-import Message from "@mui/icons-material/Message";
+import { motion } from "framer-motion";
+import { ReactSVG } from "react-svg";
+import message from "../../../assets/misc/msg.svg";
+import { IconButton, Tooltip } from "@mui/material";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
 export default function Teams() {
   const teams = [
@@ -74,10 +77,24 @@ export default function Teams() {
   ];
 
   const teamElements = teams.map((team, index) => {
+    let emails = "";
+    team.members.forEach((email) => {
+      emails += email + ",";
+    });
+    emails = emails.slice(0, -1);
     return (
-      <div
+      <motion.div
         className={`d-flex px-1 py-2 justify-content-between align-items-center ${styles.team}`}
         key={index}
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+          transition: {
+            delay: 0.5 + 0.2 * index,
+          },
+        }}
       >
         <div className="d-flex gap-3 align-items-center">
           <img
@@ -86,13 +103,23 @@ export default function Teams() {
             className="rounded"
           />
           <h5>{team.teamName}</h5>
+          <div className={styles.helpContainer}>
+            <Tooltip
+              title={`${team.teamName} has ${team.memberCount} members`}
+              arrow
+            >
+              <IconButton>
+                <HelpOutlineIcon />
+              </IconButton>
+            </Tooltip>
+          </div>
         </div>
         <div className={styles.contactContainer}>
-          <ListItemIcon>
-            <Message />
-          </ListItemIcon>
+          <a href={`mailto:${emails}`} className={`svg ${styles.messageSVG}`}>
+            <ReactSVG src={message} />
+          </a>
         </div>
-      </div>
+      </motion.div>
     );
   });
 

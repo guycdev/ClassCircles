@@ -5,7 +5,7 @@ import Button from "../../../components/Button";
 
 export default function AboutUs() {
   return (
-    <section className="my-5 p-0 container">
+    <section className="my-5 p-0 container" id="about-us">
       <div className="row">
         <div className="col">
           <div className={`card ${styles.aboutUsCard}`}>

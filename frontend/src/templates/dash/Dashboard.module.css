@@ -33,7 +33,7 @@
 
 .navWrapper a:hover .dashboardNavItem {
   transform: scale(1.02);
-  background-color: var(--secondary);
+  background-color: var(--primary);
 }
 
 .navWrapper a {
@@ -42,5 +42,5 @@
 }
 
 .activeDashboardSelection .dashboardNavItem {
-  background-color: var(--secondary);
+  background-color: var(--primary);
 }

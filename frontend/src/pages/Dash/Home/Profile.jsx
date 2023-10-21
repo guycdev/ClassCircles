@@ -18,7 +18,7 @@ export default function Profile() {
 
   const user = {
     school: "University of Example",
-    schoolLogo: "https://path-to-school-logo.com/logo.png", // Replace with actual path or URL
+    schoolLogo: "https://path-to-school-logo.com/logo.png",
     department: "Computer Science",
     subjects: [
       "Data Structures",
@@ -39,7 +39,7 @@ export default function Profile() {
   }
 
   return (
-    <Card variant="outlined" className={`col-lg-4 card`}>
+    <Card className={`col-lg-4 card`}>
       <CardContent>
         <div className="border-bottom pb-1">
           <Box
@@ -61,10 +61,14 @@ export default function Profile() {
           <p>
             {settingsActive
               ? "Re-click to save"
-              : "Edit profile by clicking the cog"}
+              : "Edit profile by clicking the icon"}
           </p>
         </div>
-        <div className={`py-2 ${styles.profileCard}`}>
+        <div
+          className={`py-2 ${styles.profileCard} ${
+            !settingsActive ? styles.active : ""
+          }`}
+        >
           <TextField
             fullWidth
             margin="normal"

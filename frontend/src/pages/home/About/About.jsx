@@ -6,7 +6,7 @@ import styles from "./About.module.css";
 
 function About() {
   return (
-    <section className="container my-5">
+    <section className="container my-5" id="why-us">
       <div className="row justify-content-lg-end justify-content-sm-center">
         <div className={`col-lg-6 mr-auto mb-3 card ${styles.textCard} `}>
           <h1 className="border-bottom pb-1">

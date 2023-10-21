@@ -5,7 +5,7 @@ import Footer from "../templates/footer/Footer";
 
 export default function HomeLayout() {
   return (
-    <main className="container">
+    <main className="container-fluid">
       <Header />
       <Outlet />
       <Footer />

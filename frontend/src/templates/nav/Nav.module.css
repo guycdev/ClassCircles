@@ -45,9 +45,10 @@
 
 .navItems {
   gap: 20px;
+  list-style: none;
 }
 
-.navItems > a {
+.navItems > li > a {
   color: inherit;
   font-size: smaller;
   text-decoration: none;
@@ -55,7 +56,7 @@
   transition: all 0.3s ease;
 }
 
-.navItems > a::before {
+.navItems > li > a::before {
   content: "";
   position: absolute;
   width: 0;
@@ -67,11 +68,11 @@
   transition: all 0.3s ease;
 }
 
-.navItems > a:hover {
+.navItems > li > a:hover {
   color: var(--accent);
 }
 
-.navItems > a:hover::before {
+.navItems > li > a:hover::before {
   visibility: visible;
   width: 100%;
 }
