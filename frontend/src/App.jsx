@@ -10,7 +10,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/home/Home";
 import DashboardLayout from "./layouts/DashboardLayout";
 import DashboardHome from "./pages/Dash/Home/DashboardHome";
-import Join from "./pages/Dash/Education/Join";
+import Education from "./pages/Dash/Education/Education";
+import Recreation from "./pages/Dash/Recreational/Reacration";
 
 const route = createBrowserRouter(
   createRoutesFromElements(
@@ -18,7 +19,8 @@ const route = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="dashboard" element={<DashboardLayout />}>
         <Route index element={<DashboardHome />} />
-        <Route path="join" element={<Join />} />
+        <Route path="education" element={<Education />} />
+        <Route path="Recreation" element={<Recreation />} />
       </Route>
     </Route>
   )
