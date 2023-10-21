@@ -12,6 +12,7 @@ import Help from "@mui/icons-material/HelpOutline";
 import Logo from "../../components/Logo";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
+import styles from "./Dashboard.module.css";
 
 export default function DashboardNav() {
   return (
@@ -25,31 +26,48 @@ export default function DashboardNav() {
           duration: 0.7,
         },
       }}
+      className="col-3"
     >
-      <Drawer variant="permanent" className="nav-wrapper">
+      <Drawer variant="permanent" className={styles.navWrapper}>
         <div className="d-flex gap-4 flex-column">
           <div id="logo-container" className="py-2 border-bottom">
             <Logo />
           </div>
           <List className="d-flex flex-column gap-4">
-            <NavLink to="">
-              <ListItem className="dashboard-nav-item rounded">
+            <NavLink
+              to=""
+              className={({ isActive }) => {
+                return isActive ? styles.activeDashboardSelection : "";
+              }}
+              end
+            >
+              <ListItem className={`${styles.dashboardNavItem} rounded`}>
                 <ListItemIcon>
                   <Home />
                 </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItem>
             </NavLink>
-            <NavLink to="join">
-              <ListItem className="dashboard-nav-item rounded">
+            <NavLink
+              to="join"
+              className={({ isActive }) => {
+                return isActive ? styles.activeDashboardSelection : "";
+              }}
+            >
+              <ListItem className={`${styles.dashboardNavItem} rounded`}>
                 <ListItemIcon>
                   <JoinFull />
                 </ListItemIcon>
                 <ListItemText primary="Join" />
               </ListItem>
             </NavLink>
-            <NavLink to="support">
-              <ListItem className="dashboard-nav-item rounded">
+            <NavLink
+              to="support"
+              className={({ isActive }) => {
+                return isActive ? styles.activeDashboardSelection : "";
+              }}
+            >
+              <ListItem className={`${styles.dashboardNavItem} rounded`}>
                 <ListItemIcon>
                   <Help />
                 </ListItemIcon>
@@ -60,7 +78,7 @@ export default function DashboardNav() {
         </div>
         <List className="d-flex flex-column gap-4">
           <NavLink to="..">
-            <ListItem className="dashboard-nav-item rounded">
+            <ListItem className={`${styles.dashboardNavItem} rounded`}>
               <ListItemIcon>
                 <Home />
               </ListItemIcon>

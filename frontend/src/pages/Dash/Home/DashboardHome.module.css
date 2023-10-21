@@ -1,9 +1,59 @@
-.cards > *:nth-child(2) {
-  margin: 0rem 0.3rem;
+@import "../../../index.css";
+
+.contactContainer {
+  border-radius: 50%;
+}
+
+.team {
+  border-radius: 10px;
+  border: 1px solid var(--primary);
+}
+
+.teamsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .cards img {
   width: 250px;
   height: 150px;
   object-fit: cover;
+  opacity: 0.9;
+}
+
+.teamsContainer,
+.profileCard {
+  max-height: 450px;
+  overflow: auto !important;
+}
+.teamsContainer {
+  padding: 0rem 1rem;
+}
+
+.profileCard {
+  padding-right: 0.5rem;
+}
+
+.scrollbar *::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar *::-webkit-scrollbar-track {
+  background-color: var(--secondary);
+  border-radius: 4px;
+}
+
+.scrollbar *::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.scrollbar *::-webkit-scrollbar-thumb:hover {
+  background-color: var(--secondary);
+}
+
+.settings {
+  box-shadow: var(--box-shadow);
 }

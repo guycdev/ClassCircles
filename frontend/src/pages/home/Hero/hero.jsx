@@ -1,6 +1,6 @@
 import React from "react";
 import HeroCard from "./HeroCard";
-import HeroImage from "./HeroImage";
+import HeroImage from "../../../components/HeroImage";
 import education from "../../../assets/home/education.png";
 import sports from "../../../assets/home/sports.png";
 
