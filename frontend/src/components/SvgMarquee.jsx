@@ -1,7 +1,7 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import { ReactSVG } from "react-svg";
-import styles from "./Components.Module.css";
+import styles from "./Components.module.css";
 
 export default function SvgMarquee(props) {
   const { svgs, pause } = props;
