@@ -8,13 +8,21 @@ import {
 import HomeLayout from "./layouts/HomeLayout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/home/Home";
+import AuthLayout from "./layouts/AuthLayout";
 import LogIn from "./pages/auth/login/Login";
 
 const route = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<HomeLayout />}>
       <Route index element={<Home />} />
-      <Route path="log-in" element={<LogIn />} />
+      <Route
+        path="/log-in"
+        element={
+          <AuthLayout>
+            <LogIn />
+          </AuthLayout>
+        }
+      />
     </Route>
   )
 );

@@ -1,0 +1,13 @@
+.main {
+  height: 75vh;
+  margin: 24px 0;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+.copyright {
+  margin-top: 1rem;
+  text-align: center;
+}
+
