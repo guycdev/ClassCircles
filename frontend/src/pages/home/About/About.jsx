@@ -66,7 +66,7 @@ function About() {
           <div className={`card ${styles.aboutCards}`}>
             <h2>Social Interaction</h2>
             <p className={styles.cardText}>
-              ClassCircles promote social interaction and can make the learning
+              ClassCircles promotes social interaction and can make the learning
               process more enjoyable.
             </p>
           </div>
