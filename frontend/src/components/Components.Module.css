@@ -123,3 +123,43 @@
 .marqueeItem {
   margin: 0rem 5rem;
 }
+
+.exampleOverlay {
+  position: absolute;
+  display: flex;
+  gap: 5px 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.overlayContainer:hover > .exampleOverlay {
+  opacity: 1;
+}
+
+.overlayContainer:hover > img {
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 0.4) 45%, transparent);
+  mask-image: linear-gradient(transparent 75%, black);
+}
+
+.overlayContainer:hover {
+  transform: scale(1.05);
+}
+
+.overlayContainer {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.example {
+  border-radius: 50px;
+  font-size: 0.7rem;
+  padding: 0.1rem 0.4rem;
+  background-color: var(--primary);
+  color: white;
+  box-shadow: var(--box-shadow);
+}
