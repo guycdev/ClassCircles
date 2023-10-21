@@ -10,7 +10,7 @@ export default function Marquee() {
   const svgArr = [um, harvard, osu, mit, yale];
 
   return (
-    <section className="container my-5">
+    <section className="container my-5 p-0">
       <SvgMarquee svgs={svgArr} />
     </section>
   );
