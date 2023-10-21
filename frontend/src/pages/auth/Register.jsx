@@ -1,15 +1,18 @@
 import { useState } from "react";
 
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
 
-function LogIn() {
+import TextInput from "./TextInput";
+import CustomSelect from "./CustomSelect";
+
+function Register() {
   const [formData, setFormData] = useState({
     email: "",
+    username: "",
     password: "",
+    school: "",
+    department: "",
   });
 
   function handleChange(event) {
@@ -32,34 +35,22 @@ function LogIn() {
 
   return (
     <>
-      <h5>Sign in</h5>
+      <h5>Create an Account</h5>
       <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          id="email"
-          label="Email Address"
-          name="email"
-          autoComplete="email"
-          autoFocus
-          onChange={handleChange}
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
+        <TextInput name="email" type="email" handleChange={handleChange} />
+        <TextInput name="username" type="text" handleChange={handleChange} />
+        <TextInput
           name="password"
-          label="Password"
           type="password"
-          id="password"
-          autoComplete="current-password"
-          onChange={handleChange}
+          handleChange={handleChange}
         />
-        <FormControlLabel
-          control={<Checkbox value="remember" color="primary" />}
-          label="Remember me"
+
+        <CustomSelect
+          name="school"
+          handleChange={handleChange}
+          value={formData.school}
         />
+
         <Button
           type="submit"
           fullWidth
@@ -77,4 +68,4 @@ function LogIn() {
   );
 }
 
-export default LogIn;
+export default Register;
