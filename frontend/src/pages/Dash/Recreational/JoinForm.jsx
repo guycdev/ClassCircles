@@ -5,53 +5,39 @@ import ProgressBar from "../../../components/ProgressBar";
 import { motion } from "framer-motion";
 
 export default function JoinForm(props) {
-  const { title, subheading, join } = props;
+  const { title, subheading, data } = props;
 
-  const teams = [
-    {
-      school: "school of Example A",
-      activity: "Football",
-      type: "type A",
-      teamName: "A Team",
-      playerCount: 22,
-    },
-    {
-      school: "school of Example A",
-      activity: "Basketball",
-      type: "type B",
-      teamName: "B Team",
-      playerCount: 15,
-    },
-  ];
+  console.log(data);
+
+  const teams = data;
 
   const [selectedSchool, setSelectedSchool] = useState("");
-  const [selectedActivity, setSelectedActivity] = useState("");
   const [selectedType, setSelectedType] = useState("");
-  const [selectedTeam, setSelectedTeam] = useState("");
+  const [selectedActivity, setSelectedActivity] = useState("");
+  const [teamName, setTeamName] = useState("");
   const [count, setCount] = useState(0);
 
   const universities = [...new Set(teams.map((team) => team.school))];
-  const sports = [
-    ...new Set(
-      teams
-        .filter((team) => team.school === selectedSchool)
-        .map((team) => team.sport)
-    ),
-  ];
   const types = [
     ...new Set(
       teams
-        .filter((team) => team.sport === selectedActivity)
+        .filter((team) => team.school === selectedSchool)
         .map((team) => team.type)
+    ),
+  ];
+  const sports = [
+    ...new Set(
+      teams
+        .filter((team) => team.type === selectedType)
+        .map((team) => team.activity)
     ),
   ];
   const availableTeams = teams.filter(
     (team) =>
       team.school === selectedSchool &&
-      team.sport === selectedActivity &&
+      team.activity === selectedActivity &&
       team.type === selectedType
   );
-
   async function handleSubmit(e) {
     e.preventDefault();
   }
@@ -88,7 +74,7 @@ export default function JoinForm(props) {
                   setSelectedSchool(e.target.value);
                   setSelectedActivity("");
                   setSelectedType("");
-                  setSelectedTeam("");
+                  setTeamName("");
                   setCount((prev) => prev + 1);
                 }}
                 label="school"
@@ -102,37 +88,16 @@ export default function JoinForm(props) {
             </FormControl>
 
             <FormControl fullWidth variant="outlined" margin="normal">
-              <InputLabel>Sport</InputLabel>
-              <Select
-                value={selectedActivity}
-                onChange={(e) => {
-                  setSelectedActivity(e.target.value);
-                  setSelectedType("");
-                  setSelectedTeam("");
-                  setCount((prev) => prev + 1);
-                }}
-                label="Sport"
-                disabled={!selectedSchool}
-              >
-                {sports.map((sport, index) => (
-                  <MenuItem key={index} value={sport}>
-                    {sport}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-
-            <FormControl fullWidth variant="outlined" margin="normal">
               <InputLabel>type</InputLabel>
               <Select
                 value={selectedType}
                 onChange={(e) => {
                   setSelectedType(e.target.value);
-                  setSelectedTeam("");
+                  setSelectedActivity("");
                   setCount((prev) => prev + 1);
                 }}
                 label="type"
-                disabled={!selectedActivity}
+                disabled={!selectedSchool}
               >
                 {types.map((div, index) => (
                   <MenuItem key={index} value={div}>
@@ -143,15 +108,35 @@ export default function JoinForm(props) {
             </FormControl>
 
             <FormControl fullWidth variant="outlined" margin="normal">
+              <InputLabel>Activity</InputLabel>
+              <Select
+                value={selectedActivity}
+                onChange={(e) => {
+                  setSelectedActivity(e.target.value);
+                  setTeamName("");
+                  setCount((prev) => prev + 1);
+                }}
+                label="Sport"
+                disabled={!selectedType}
+              >
+                {sports.map((sport, index) => (
+                  <MenuItem key={index} value={sport}>
+                    {sport}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+
+            <FormControl fullWidth variant="outlined" margin="normal">
               <InputLabel>Team</InputLabel>
               <Select
-                value={selectedTeam}
+                value={teamName}
                 onChange={(e) => {
-                  setSelectedTeam(e.target.value);
+                  setTeamName(e.target.value);
                   setCount((prev) => prev + 1);
                 }}
                 label="Team"
-                disabled={!selectedType}
+                disabled={!selectedActivity}
               >
                 {availableTeams && availableTeams.length > 0 ? (
                   availableTeams.map((team, index) => {

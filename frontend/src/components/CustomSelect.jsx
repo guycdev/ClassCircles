@@ -16,8 +16,6 @@ const CustomSelect = (props) => {
     }));
   }
 
-  console.log(inputValue);
-
   function handleDelete(event) {
     const index = event.key;
     const newOptions = [...value];
@@ -27,8 +25,6 @@ const CustomSelect = (props) => {
       [name]: newOptions,
     }));
   }
-
-  console.log(active);
 
   return (
     <FormControl fullWidth margin="normal" variant="outlined">

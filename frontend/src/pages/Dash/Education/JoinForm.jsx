@@ -7,79 +7,17 @@ import { motion } from "framer-motion";
 export default function JoinForm(props) {
   const { title, subheading, data } = props;
 
-  const groups = [
-    {
-      school: "University of Example A",
-      department: "Computer Science",
-      class: "Data Structures",
-      groupName: "CompSci Coders A",
-      memberCount: 15,
-    },
-    {
-      school: "University of Example A",
-      department: "Computer Science",
-      class: "Web Development",
-      groupName: "Web Wizards A",
-      memberCount: 10,
-    },
-    {
-      school: "University of Example A",
-      department: "Business",
-      class: "Marketing 101",
-      groupName: "Biz Masters A",
-      memberCount: 8,
-    },
-    {
-      school: "University of Example B",
-      department: "Computer Science",
-      class: "Database Systems",
-      groupName: "DB Experts B",
-      memberCount: 20,
-    },
-    {
-      school: "University of Example B",
-      department: "Computer Science",
-      class: "Web Development",
-      groupName: "Web Enthusiasts B",
-      memberCount: 12,
-    },
-    {
-      school: "University of Example A",
-      department: "Computer Science",
-      class: "Data Structures",
-      groupName: "Data Struct Pioneers A",
-      memberCount: 18,
-    },
-    {
-      school: "University of Example B",
-      department: "Computer Science",
-      class: "Web Development",
-      groupName: "Web Innovators B",
-      memberCount: 14,
-    },
-    {
-      school: "University of Example A",
-      department: "Computer Science",
-      class: "Web Development",
-      groupName: "Web Developers A+",
-      memberCount: 9,
-    },
-    {
-      school: "University of Example A",
-      department: "Computer Science",
-      class: "Data Structures",
-      groupName: "Structure Enthusiasts A",
-      memberCount: 16,
-    },
-  ];
+  const groups = data;
+
+  console.log(groups);
 
   const [selectedSchool, setSelectedSchool] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [selectedClass, setSelectedClass] = useState("");
-  const [selectedGroup, setSelectedGroup] = useState("");
+  const [groupName, setGroupName] = useState("");
   const [count, setCount] = useState(0);
 
-  const schools = [...new Set(groups.map((group) => group.school))];
+  const schools = [...new Set(data.map((group) => group.school))];
   const departments = [
     ...new Set(
       groups
@@ -185,9 +123,9 @@ export default function JoinForm(props) {
             <FormControl fullWidth variant="outlined" margin="normal">
               <InputLabel>Group</InputLabel>
               <Select
-                value={selectedGroup}
+                value={groupName}
                 onChange={(e) => {
-                  setSelectedGroup(e.target.value);
+                  setGroupName(e.target.value);
                   setCount((prev) => prev + 1);
                 }}
                 disabled={!selectedClass}
@@ -197,7 +135,8 @@ export default function JoinForm(props) {
                   availableGroups.map((group, index) => {
                     return (
                       <MenuItem key={index} value={group.groupName}>
-                        {group.groupName} (Members: {group.memberCount})
+                        {group.groupName} (Members:{" "}
+                        {group.memberCount ? group.memberCount : 0})
                       </MenuItem>
                     );
                   })

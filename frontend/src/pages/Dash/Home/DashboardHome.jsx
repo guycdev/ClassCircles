@@ -7,14 +7,17 @@ import { useLoaderData, redirect } from "react-router-dom";
 
 export async function loader() {
   try {
-    const userRequest = await fetch("http://127.0.0.1:5173/api/user?id=123");
+    //Fixed id param for dummy auth
+    const userRequest = await fetch(
+      "http://ec2-184-73-129-175.compute-1.amazonaws.com:3003/users/65355ca3b0554119a2f81acc"
+    );
     const userData = await userRequest.json();
-    const groupRequest = await fetch("http://127.0.0.1:5173/api/user?id=123");
-    const groupData = await groupRequest.json();
-    if (!userRequest.ok || !groupRequest.ok) {
-      return redirect("../account");
-    }
-    return { userData, groupData };
+    // const groupRequest = await fetch("http://127.0.0.1:5173/api/user?id=123");
+    // const groupData = await groupRequest.json();
+    // if (!userRequest.ok || !groupRequest.ok) {
+    //   return redirect("../account");
+    // }
+    return { userData };
   } catch (err) {
     console.log(err);
   }
@@ -22,8 +25,6 @@ export async function loader() {
 
 export default function DashboardHome() {
   const data = useLoaderData();
-
-  console.log(data);
 
   return (
     <div
@@ -46,7 +47,7 @@ export default function DashboardHome() {
           },
         }}
       >
-        <DashboardTeams />
+        <DashboardTeams data={data} />
       </motion.div>
     </div>
   );

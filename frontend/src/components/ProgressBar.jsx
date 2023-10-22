@@ -9,7 +9,7 @@ export default function ProgressBar(props) {
   return (
     <LinearProgress
       variant="determinate"
-      value={value}
+      value={progress >= inputCount ? (inputCount / inputCount) * 100 : value}
       className="progress-bar"
       sx={{
         "& .MuiLinearProgress-barColorPrimary": {

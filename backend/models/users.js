@@ -8,6 +8,10 @@ const UserSchema = new Schema({
     required: true,
     unique: true,
   },
+  name: {
+    type: String,
+    required: true,
+  },
   university: {
     type: String,
     required: true,

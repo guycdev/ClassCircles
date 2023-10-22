@@ -21,7 +21,11 @@ const eduGroups = require("./models/eduGroups");
 const port = 3000;
 const app = express();
 
+//Cors
+const cors = require("cors");
+
 app.use(express.urlencoded({ extended: true })); // To get information from POST request body. Grants us parsing of req.body.
+app.use(cors());
 
 const sessionConfiguration = {
   secret: "changeThisSecretLater!", // This will be changed prior to deployment.
@@ -257,6 +261,121 @@ app.get("/groups/recGroups/:id", async (req, res) => {
   const athGroup = await recGroupGroup.findById(id);
   console.log(athGroup);
   res.send(athGroup);
+});
+
+app.post("/groups/addEduGroup/:userId", async (req, res) => {
+  try {
+    console.log("TESTING...");
+    const { userId } = req.params;
+    const { school, department, classInput, groupName } = req.body;
+    const user = await User.findById(userId);
+    console.log("RETURNING USER...");
+    console.log(user);
+
+    if (!user) {
+      return res.status(400).json({ message: "User not found..." });
+    }
+
+    const newGroup = new eduGroups({
+      title: groupName,
+      school,
+      department,
+      class: classInput,
+      users: [userId], // Adding the user ID by default
+      memberCount: 1, // Since there's 1 user by default
+    });
+
+    await newGroup.save();
+    return res.status(200).json({ status: "Success" });
+  } catch (err) {
+    console.log("ERROR: Could not fetch page...");
+    console.log(err.message);
+    res.status(500).send("Server Error...");
+  }
+});
+
+app.post("/groups/addRecGroup/:userId", async (req, res) => {
+  try {
+    console.log("TESTING REC GROUP POST...");
+    const { userId } = req.params;
+    const { school, type, activity, groupName } = req.body;
+    const user = await User.findById(userId);
+    console.log("RETURNING USER...");
+    console.log(user);
+
+    // Check if user exists...
+    if (!user) {
+      return res.status(400).json({ message: "User not found..." });
+    }
+
+    // Create new group
+    const newGroup = new eduGroups({
+      title: groupName,
+      school,
+      type,
+      activity,
+      users: [userId], // Adding the user ID by default
+      memberCount: 1, // Since there's 1 user by default
+    });
+
+    await newGroup.save();
+    return res.status(200).json({ status: "Success recGroup" });
+
+    // Send response
+  } catch (err) {
+    console.log("ERROR: Could not fetch page...");
+    console.log(err.message);
+    res.status(500).send("Server Error...");
+  }
+});
+
+async function getEmailsOfGroupMembers(userID) {
+  try {
+    const user = await User.findById(userID);
+
+    if (!user) {
+      return Promise.reject("User not found....");
+    }
+
+    const eduGroupMembers = await eduGroups.find();
+    const recGroupMembers = await recGroups.find();
+
+    const groupMembers = eduGroupMembers.concat(recGroupMembers);
+
+    const userGroupMembers = groupMembers.filter((group) => {
+      return group.users.some((groupUser) => groupUser.equals(userID));
+    });
+
+    const emailsMap = new Map();
+
+    userGroupMembers.forEach((group) => {
+      group.users.forEach((groupUser) => {
+        emailsMap.set(groupUser.email, groupUser);
+      });
+    });
+
+    return Array.from(emailsMap.keys());
+  } catch (err) {
+    return Promise.reject("Error fetching group member emails...");
+  }
+}
+
+// Use the above defined async function for fetching emails in this route
+app.get("/getGroupMemberEmails", async (req, res) => {
+  const { userID } = req.query; // get userID from URL parameter
+
+  // Check if the userID exists
+  if (!userID) {
+    return res.status(400).json({ error: "User ID parameter is missing..." });
+  }
+
+  try {
+    // Use function to fetch user emails
+    const emails = await getEmailsOfGroupMembers(userID);
+    res.json(emails);
+  } catch (err) {
+    res.status(500).json({ error: "Internal Server Error..." });
+  }
 });
 
 app.get("/groups/addRecGroup", (req, res) => {

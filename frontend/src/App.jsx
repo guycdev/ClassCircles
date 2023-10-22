@@ -43,20 +43,16 @@ const route = createBrowserRouter(
         }
       />
       <Route path="dashboard" element={<DashboardLayout />}>
-        <Route
-          index
-          element={<DashboardHome />}
-          // loader={dashboardHomeLoader}
-        />
+        <Route index element={<DashboardHome />} loader={dashboardHomeLoader} />
         <Route
           path="education"
           element={<Education />}
-          // loader={educationLoader}
+          loader={educationLoader}
         />
         <Route
           path="Recreation"
           element={<Recreation />}
-          // loader={recreationLoader}
+          loader={recreationLoader}
         />
       </Route>
     </Route>

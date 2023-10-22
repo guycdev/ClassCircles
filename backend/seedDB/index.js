@@ -24,9 +24,9 @@ const seedDBUser = async () => {
 
   // DO NOT RUN DELETE THIS BLOCK UNLESS WE ARE FLUSHING THE DB.
 
-  // await User.deleteMany({});
-  // await recGroup.deleteMany({});
-  // await Group.deleteMany({});
+  await User.deleteMany({});
+  await recGroup.deleteMany({});
+  await Group.deleteMany({});
 
   //
 
@@ -37,11 +37,24 @@ const seedDBUser = async () => {
   //   university: "Oregon State University",
   // });
 
+  const sampleUser = new User({
+    email: "sample@email.com",
+    university: "Sample University",
+    subjects: ["Mathematics", "Computer Science"],
+    hobbies: ["Reading", "Coding"],
+    funFact: "I love pizza!",
+    avatar: "link_to_avatar_image.jpg",
+    department: "Computer science",
+    name: "Guy Cohen",
+    _id: "65355ca3b0554119a2f81acc",
+  });
+
   const eduGroup1 = new Group({
     groupName: "Future Software Engineers",
     school: "Michigan State University",
     department: "Science",
     users: ["65355ca3b0554119a2f81acc"],
+    class: "Science 101",
     description:
       "Programming is fun! Come study with us! Anything from Introduction to Computer Science, all the way through Operating Systems!",
   });
@@ -51,6 +64,7 @@ const seedDBUser = async () => {
     school: "Portland State University",
     department: "Mathematics",
     users: ["65355ca3b0554119a2f81acc"],
+    class: "Math 101",
     description:
       "We love math! Computational, logic-based, novice or pro, come join us!!",
   });
@@ -58,6 +72,7 @@ const seedDBUser = async () => {
   const eduGroup3 = new Group({
     groupName: "Poets Unite",
     school: "University of Oregon",
+    class: "English 101",
     department: "English",
     users: ["65355ca3b0554119a2f81acc"],
     description: "frasier crane test",
@@ -119,16 +134,16 @@ const seedDBUser = async () => {
 
   // DO NOT RUN UNLESS WE ARE FLUSHING THE DB //
 
-  // await newUser.save();
-  // await eduGroup1.save();
-  // await eduGroup2.save();
-  // await eduGroup3.save();
-  // await recGroup1.save();
-  // await recGroup2.save();
-  // await recGroup3.save();
-  // await recGroup4.save();
-  // await recGroup5.save();
-  // await recGroup6.save();
+  await sampleUser.save();
+  await eduGroup1.save();
+  await eduGroup2.save();
+  await eduGroup3.save();
+  await recGroup1.save();
+  await recGroup2.save();
+  await recGroup3.save();
+  await recGroup4.save();
+  await recGroup5.save();
+  await recGroup6.save();
   //
 };
 console.log("SAVING...");

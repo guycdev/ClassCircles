@@ -6,33 +6,35 @@ import { ThemeProvider } from "@emotion/react";
 import theme from "../../../theme";
 import CustomSelect from "../../../components/CustomSelect";
 
-export default function Profile() {
-  const user = {
-    school: "University of Example",
-    schoolLogo: "https://path-to-school-logo.com/logo.png",
-    department: "Computer Science",
-    subjects: [
-      "Data Structures",
-      "Algorithms",
-      "Web Development",
-      "Database Systems",
-    ],
-    graduationYear: 2025,
-    name: "John Doe",
-    email: "johndoe@example.edu",
-    hobbies: ["Reading", "Hiking", "Coding", "Photography"],
-    funFact:
-      "I once participated in a national coding competition and won second place!",
-  };
+const temp = {
+  school: "University of Example",
+  department: "Computer Science",
+  subjects: [
+    "Data Structures",
+    "Algorithms",
+    "Web Development",
+    "Database Systems",
+  ],
+  graduationYear: 2025,
+  name: "John Doe",
+  email: "johndoe@example.edu",
+  hobbies: ["Reading", "Hiking", "Coding", "Photography"],
+  funFact:
+    "I once participated in a national coding competition and won second place!",
+};
+
+export default function Profile(props) {
+  const { data } = props;
+  const { userData } = data;
 
   const [settingsActive, setSettingsActive] = useState(false);
-  const [userData, setUserData] = useState({
-    name: user.name,
-    email: user.email,
-    school: user.school,
-    department: user.department,
-    subjects: user.subjects,
-    hobbies: user.hobbies,
+  const [user, setuser] = useState({
+    name: userData.name,
+    email: userData.email,
+    school: userData.university,
+    department: userData.department,
+    subjects: userData.subjects,
+    hobbies: userData.hobbies,
   });
 
   function handleClick() {
@@ -45,7 +47,7 @@ export default function Profile() {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setUserData((prev) => {
+    setuser((prev) => {
       return {
         ...prev,
         [name]: value,
@@ -90,7 +92,7 @@ export default function Profile() {
               margin="normal"
               label="Name"
               variant="outlined"
-              value={userData.name}
+              value={user.name}
               name="name"
               onChange={handleChange}
               style={{ pointerEvents: settingsActive ? "unset" : "none" }}
@@ -101,7 +103,7 @@ export default function Profile() {
               margin="normal"
               label="Email"
               variant="outlined"
-              value={userData.email}
+              value={user.email}
               name="email"
               onChange={handleChange}
               style={{ pointerEvents: settingsActive ? "unset" : "none" }}
@@ -112,7 +114,7 @@ export default function Profile() {
               margin="normal"
               label="School"
               variant="outlined"
-              value={userData.school}
+              value={user.school}
               name="school"
               onChange={handleChange}
               style={{ pointerEvents: settingsActive ? "unset" : "none" }}
@@ -123,22 +125,22 @@ export default function Profile() {
               margin="normal"
               label="Department"
               variant="outlined"
-              value={userData.department}
+              value={user.department}
               name="department"
               onChange={handleChange}
               style={{ pointerEvents: settingsActive ? "unset" : "none" }}
             />
             <CustomSelect
               name="subjects"
-              value={userData.subjects}
-              setFormData={setUserData}
+              value={user.subjects}
+              setFormData={setuser}
               options={[]}
               active={settingsActive}
             />
             <CustomSelect
               name="hobbies"
-              value={userData.hobbies}
-              setFormData={setUserData}
+              value={user.hobbies}
+              setFormData={setuser}
               options={[]}
               active={settingsActive}
             />

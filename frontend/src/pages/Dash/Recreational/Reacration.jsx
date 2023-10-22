@@ -5,10 +5,12 @@ import { useLoaderData, redirect } from "react-router-dom";
 
 export async function loader() {
   try {
-    const req = await fetch("http://127.0.0.1:5173/groups/recreation");
+    const req = await fetch(
+      "http://ec2-184-73-129-175.compute-1.amazonaws.com:3003/groups/recGroups"
+    );
     const data = await req.json();
-    if (!userRequest.ok) {
-      return redirect("../account");
+    if (!req.ok) {
+      return redirect("../sign-in");
     }
     return data;
   } catch (err) {
