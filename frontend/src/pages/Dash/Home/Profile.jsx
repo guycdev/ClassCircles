@@ -128,19 +128,19 @@ export default function Profile() {
               onChange={handleChange}
               style={{ pointerEvents: settingsActive ? "unset" : "none" }}
             />
-
             <CustomSelect
               name="subjects"
               value={userData.subjects}
               setFormData={setUserData}
               options={[]}
+              active={settingsActive}
             />
-
             <CustomSelect
               name="hobbies"
               value={userData.hobbies}
               setFormData={setUserData}
               options={[]}
+              active={settingsActive}
             />
           </div>
         </ThemeProvider>

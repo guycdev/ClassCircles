@@ -1,7 +1,7 @@
 @import "../index.css";
 
 .logo {
-  gap: 20px;
+  gap: 10px;
   transition: all 0.3s;
 }
 

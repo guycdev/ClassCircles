@@ -11,7 +11,7 @@ export default function Logo() {
         <ReactSVG src={logo} />
       </div>
       <h4 className={` ${styles.logoHeading}`}>
-        <AnimatedText content="StudySpheres" />
+        <AnimatedText content="ClassCircless" />
       </h4>
     </div>
   );

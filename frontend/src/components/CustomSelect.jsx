@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import { FormControl, Chip } from "@mui/material";
 
 const CustomSelect = (props) => {
-  const { name, value, setFormData, options } = props;
+  const { name, value, setFormData, options, active } = props;
 
   const [inputValue, setInputValue] = useState("");
   const label = name[0].toUpperCase() + name.slice(1);
@@ -16,6 +16,8 @@ const CustomSelect = (props) => {
     }));
   }
 
+  console.log(inputValue);
+
   function handleDelete(event) {
     const index = event.key;
     const newOptions = [...value];
@@ -25,6 +27,8 @@ const CustomSelect = (props) => {
       [name]: newOptions,
     }));
   }
+
+  console.log(active);
 
   return (
     <FormControl fullWidth margin="normal" variant="outlined">
@@ -52,6 +56,7 @@ const CustomSelect = (props) => {
             />
           ))
         }
+        disabled={!(active == undefined || active)}
       />
     </FormControl>
   );

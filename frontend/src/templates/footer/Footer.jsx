@@ -11,7 +11,7 @@ export default function Footer() {
         <p className="mt-2">
           Welcome to ClassCircles, your gateway to successful collaboration and
           academic excellence. We're here to help you find like-minded peers and
-          create study groups that work for you. With StudySpheres, you can
+          create study groups that work for you. With ClassCircless, you can
           connect, learn, and excel together.
         </p>
       </div>
