@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -14,8 +14,6 @@ import styles from "./DashboardHome.module.css";
 import { Settings } from "@mui/icons-material";
 
 export default function Profile() {
-  const [settingsActive, setSettingsActive] = useState(false);
-
   const user = {
     school: "University of Example",
     schoolLogo: "https://path-to-school-logo.com/logo.png",
@@ -34,8 +32,30 @@ export default function Profile() {
       "I once participated in a national coding competition and won second place!",
   };
 
+  const [settingsActive, setSettingsActive] = useState(false);
+  const [userData, setUserData] = useState({
+    name: user.name,
+    email: user.email,
+    school: user.school,
+    department: user.department,
+  });
+
   function handleClick() {
     setSettingsActive((prev) => !prev);
+  }
+
+  useEffect(() => {
+    //Logic to post data once the user reclicks the logo
+  }, [settingsActive]);
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setUserData((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
   }
 
   return (
@@ -74,7 +94,9 @@ export default function Profile() {
             margin="normal"
             label="Name"
             variant="outlined"
-            value={user.name}
+            value={userData.name}
+            name="name"
+            onChange={handleChange}
             style={{ pointerEvents: settingsActive ? "unset" : "none" }}
           />
 
@@ -83,7 +105,9 @@ export default function Profile() {
             margin="normal"
             label="Email"
             variant="outlined"
-            value={user.email}
+            value={userData.email}
+            name="email"
+            onChange={handleChange}
             style={{ pointerEvents: settingsActive ? "unset" : "none" }}
           />
 
@@ -92,7 +116,9 @@ export default function Profile() {
             margin="normal"
             label="School"
             variant="outlined"
-            value={user.school}
+            value={userData.school}
+            name="school"
+            onChange={handleChange}
             style={{ pointerEvents: settingsActive ? "unset" : "none" }}
           />
 
@@ -101,7 +127,9 @@ export default function Profile() {
             margin="normal"
             label="Department"
             variant="outlined"
-            value={user.department}
+            value={userData.department}
+            name="department"
+            onChange={handleChange}
             style={{ pointerEvents: settingsActive ? "unset" : "none" }}
           />
 
