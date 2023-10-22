@@ -41,6 +41,7 @@ export default function Profile() {
     email: user.email,
     school: user.school,
     department: user.department,
+    subjects: user.subjects,
     hobbies: user.hobbies,
   });
 
@@ -138,6 +139,14 @@ export default function Profile() {
               style={{ pointerEvents: settingsActive ? "unset" : "none" }}
             />
 
+            <CustomSelect
+              name="subjects"
+              value={userData.subjects}
+              setFormData={setUserData}
+              options={[]}
+            />
+
+            {/*
             <FormControl fullWidth margin="normal" variant="outlined">
               <InputLabel>Subjects</InputLabel>
               <Select multiple value={user.subjects} label="Subjects">
@@ -148,11 +157,13 @@ export default function Profile() {
                 ))}
               </Select>
             </FormControl>
+                */}
 
             <CustomSelect
               name="hobbies"
               value={userData.hobbies}
               setFormData={setUserData}
+              options={[]}
             />
           </div>
         </ThemeProvider>
