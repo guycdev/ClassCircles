@@ -91,9 +91,10 @@ function SignUp() {
         />
 
         <CustomSelect
-          name={hobbies}
-          val={formData.hobbies}
+          name="hobbies"
+          value={formData.hobbies}
           handleChange={handleChange}
+          setFormData={setFormData}
         />
 
         {/*

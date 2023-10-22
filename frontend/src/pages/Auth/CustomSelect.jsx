@@ -4,31 +4,41 @@ import TextField from "@mui/material/TextField";
 import { FormControl, Chip } from "@mui/material";
 
 const CustomSelect = (props) => {
-  const { handleChange, name, val } = props;
+  const { name, value, setFormData } = props;
 
   const [inputValue, setInputValue] = useState("");
-  const [selectedOptions, setSelectedOptions] = useState(val);
+  const label = name[0].toUpperCase() + name.slice(1);
 
   const options = ["Reading", "Hiking", "Sports", "Programming"];
 
-  function handleInputChange(event, newInputValue) {
-    setInputValue(newInputValue);
-    handleChange(event);
+  function handleChange(event, newValue) {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: newValue,
+    }));
+  }
+
+  function handleDelete(event) {
+    const index = event.key;
+    const newOptions = [...value];
+    newOptions.splice(index, 1);
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: newOptions,
+    }));
   }
 
   return (
     <FormControl fullWidth margin="normal" variant="outlined">
       <Autocomplete
-        value={selectedOptions}
-        onChange={(event, newValue) => {
-          setSelectedOptions(newValue);
-        }}
+        value={value}
+        onChange={handleChange}
         inputValue={inputValue}
-        onInputChange={handleInputChange}
+        onInputChange={(event, newValue) => setInputValue(newValue)}
         options={options}
         fullWidth
         renderInput={(params) => (
-          <TextField {...params} label="Hobbies" name="Hobbies" />
+          <TextField {...params} label={label} name={name} />
         )}
         freeSolo
         required
@@ -39,11 +49,7 @@ const CustomSelect = (props) => {
             <Chip
               key={index}
               label={option}
-              onDelete={() => {
-                const newOptions = [...selectedOptions];
-                newOptions.splice(index, 1);
-                setSelectedOptions(newOptions);
-              }}
+              onDelete={handleDelete}
               {...getTagProps({ index })}
             />
           ))
