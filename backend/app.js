@@ -6,7 +6,7 @@ const catchAsyncError = require("./utilities/catchAsyncErrors");
 const { storeReturnTo } = require("./middleware");
 const axios = require("axios").default;
 
-// MongoDB Modelss
+// MongoDB Models
 const User = require("./models/users");
 const studentGroup = require("./models/groups");
 const recGroup = require("./models/reacreationalGroups");
@@ -89,6 +89,7 @@ app.post(
   }),
   (req, res) => {
     // If this block is executed, user was authenticated and logged in.
+    console.log("LOGGED IN");
     const redirectedUrl = res.locals.returnToUrl || "/"; // upon success
     if (redirectedUrl == "/login") {
       // If the user clicks the login prompt, devise way to not redirect back to 'login, go to / instead.
@@ -113,6 +114,10 @@ app.post(
 //     console.log("THERE WAS A FATAL ERROR WITH AXIOS...");
 //   }
 // }
+
+app.get("/register", (req, res) => {
+  res.render("users/register");
+});
 
 app.post(
   "/register",

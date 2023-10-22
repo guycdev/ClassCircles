@@ -14,7 +14,7 @@ function Login(props) {
         </div>
         <div>
           <label htmlFor="password">
-            Email:
+            Password:
             <input type="password" id="password" name="password" />
           </label>
         </div>
