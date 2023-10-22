@@ -12,10 +12,12 @@ function SignUp() {
     password: "",
     school: "",
     department: "",
+    subjects: [],
     hobbies: [],
   });
 
   const hobbies = ["Reading", "Programming", "Hiking", "Sports"];
+  const subjects = ["Math", "Computer Science", "English"];
 
   const filledOut =
     formData.email &&
@@ -91,31 +93,19 @@ function SignUp() {
         />
 
         <CustomSelect
-          name="hobbies"
-          value={formData.hobbies}
-          handleChange={handleChange}
+          name="subjects"
+          value={formData.subjects}
+          options={subjects}
           setFormData={setFormData}
         />
 
-        {/*
-        <FormControl fullWidth margin="normal" variant="outlined">
-          <InputLabel>Subjects & Hobbies</InputLabel>
-          <Select
-            multiple
-            value={formData.hobbies}
-            label="Hobbies"
-            onChange={handleChange}
-            name="hobbies"
-            required={true}
-          >
-            {hobbies.map((hobby, index) => (
-              <MenuItem key={index} value={hobby}>
-                {hobby}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        */}
+        <CustomSelect
+          name="hobbies"
+          value={formData.hobbies}
+          options={hobbies}
+          handleChange={handleChange}
+          setFormData={setFormData}
+        />
 
         <FormRedirect
           text="Have an account ? "

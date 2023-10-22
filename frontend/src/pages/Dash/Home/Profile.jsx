@@ -49,7 +49,7 @@ export default function Profile() {
   }
 
   useEffect(() => {
-    //Logic to post data once the user reclicks the logo
+    // Logic to post data once the user reclicks the logo
   }, [settingsActive]);
 
   function handleChange(e) {
@@ -148,19 +148,7 @@ export default function Profile() {
                 ))}
               </Select>
             </FormControl>
-            {/*
-            <FormControl fullWidth margin="normal" variant="outlined">
-              <InputLabel>Hobbies</InputLabel>
-              <Select multiple value={user.hobbies} label="Hobbies">
-                {user.hobbies.map((hobby, index) => (
-                  <MenuItem key={index} value={hobby}>
-                    {hobby}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
 
-                */}
             <CustomSelect
               name="hobbies"
               value={userData.hobbies}

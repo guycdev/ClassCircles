@@ -4,12 +4,10 @@ import TextField from "@mui/material/TextField";
 import { FormControl, Chip } from "@mui/material";
 
 const CustomSelect = (props) => {
-  const { name, value, setFormData } = props;
+  const { name, value, setFormData, options } = props;
 
   const [inputValue, setInputValue] = useState("");
   const label = name[0].toUpperCase() + name.slice(1);
-
-  const options = ["Reading", "Hiking", "Sports", "Programming"];
 
   function handleChange(event, newValue) {
     setFormData((prevFormData) => ({
