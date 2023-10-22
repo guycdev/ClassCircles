@@ -17,7 +17,7 @@ export default function DashboardCards() {
         text="Find your people today!"
         id={0}
         examples={["Basketball", "Soccer", "Tennis", "Pickleball", "Yoga"]}
-        to="./education"
+        to="./recreation"
       />
       <HeroImage
         img={education}
@@ -26,7 +26,7 @@ export default function DashboardCards() {
         text="Find your people today!"
         id={1}
         examples={["Calculus", "Networks", "Operating Systems"]}
-        to="./recreation"
+        to="./education"
       />
       <HeroImage
         img={hobbies}

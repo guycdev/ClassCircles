@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../../components/Logo";
 import ContactForm from "./ContactForm";
 import styles from "./Footer.module.css";
+import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -20,13 +21,13 @@ export default function Footer() {
         <h2 className={styles.header}>Contact Information</h2>
         <ul className={styles.list}>
           <li className={styles.listItem}>
-            <a href="#">Link to GitHub 1</a>
+            <a href="https://github.com/gcWDev">github.com/gcWDev</a>
           </li>
           <li className={styles.listItem}>
-            <a href="#">Link to GitHub 1</a>
+            <a href="https://github.com/AriZeto">github.com/AriZeto</a>
           </li>
           <li className={styles.listItem}>
-            <a href="#">Link to GitHub 1</a>
+            <a href="https://github.com/mjande">github.com/mjande</a>
           </li>
         </ul>
       </div>
@@ -34,16 +35,10 @@ export default function Footer() {
         <h2 className={styles.header}>Sitemap</h2>
         <ul className={styles.list}>
           <li className={styles.listItem}>
-            <a href="#">Home</a>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li className={styles.listItem}>
-            <a href="#">User Dashboard</a>
-          </li>
-          <li className={styles.listItem}>
-            <a href="#">Groups</a>
-          </li>
-          <li className={styles.listItem}>
-            <a href="#">Schools</a>
+            <NavLink to="/dashboard">Dashboard</NavLink>
           </li>
         </ul>
       </div>

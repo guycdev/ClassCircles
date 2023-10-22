@@ -173,78 +173,6 @@ app.get("/groups/addEduGroup", (req, res) => {
   res.send("this page will render a form to add an educational group");
 });
 
-app.post("/groups/addEduGroup/:userId", async (req, res) => {
-  // where userID is an existing mongoDB userID
-  try {
-    console.log("TESTING...");
-    const { userId } = req.params;
-    const { school, department, classInput, groupName } = req.body;
-    const user = await User.findById(userId);
-    console.log("RETURNING USER...");
-    console.log(user);
-
-    // Check if user exists...
-    if (!user) {
-      return res.status(400).json({ message: "User not found..." });
-    }
-
-    // Create new group
-    const newGroup = new eduGroups({
-      title: groupName,
-      school,
-      department,
-      class: classInput,
-      users: [userId], // Adding the user ID by default
-      memberCount: 1, // Since there's 1 user by default
-    });
-
-    await newGroup.save();
-    return res.status(200).json({ status: "Success" });
-
-    // Send response
-  } catch (err) {
-    console.log("ERROR: Could not fetch page...");
-    console.log(err.message);
-    res.status(500).send("Server Error...");
-  }
-});
-
-app.post("/groups/addRecGroup/:userId", async (req, res) => {
-  // where userID is an existing mongoDB userID
-  try {
-    console.log("TESTING REC GROUP POST...");
-    const { userId } = req.params;
-    const { school, type, activity, groupName } = req.body;
-    const user = await User.findById(userId);
-    console.log("RETURNING USER...");
-    console.log(user);
-
-    // Check if user exists...
-    if (!user) {
-      return res.status(400).json({ message: "User not found..." });
-    }
-
-    // Create new group
-    const newGroup = new eduGroups({
-      title: groupName,
-      school,
-      type,
-      activity,
-      users: [userId], // Adding the user ID by default
-      memberCount: 1, // Since there's 1 user by default
-    });
-
-    await newGroup.save();
-    return res.status(200).json({ status: "Success recGroup" });
-
-    // Send response
-  } catch (err) {
-    console.log("ERROR: Could not fetch page...");
-    console.log(err.message);
-    res.status(500).send("Server Error...");
-  }
-});
-
 // app.post("/groups/addEduGroup", async (req, res) => {
 // the following is an idea on how to get the form of the edu student group posted on /groups/eduGroup/GROUPID
 // const newGroup = new Group(req.body.eduGroup)
@@ -252,17 +180,7 @@ app.post("/groups/addRecGroup/:userId", async (req, res) => {
 // res.redirect('/groups/eduGroups/${newGroup._id})
 // });
 
-app.get("/groups/recGroups", async (req, res) => {
-  res.send("test index page for recGroups...");
-});
-
-app.get("/groups/recGroups/:id", async (req, res) => {
-  const { id } = req.params;
-  const athGroup = await recGroupGroup.findById(id);
-  console.log(athGroup);
-  res.send(athGroup);
-});
-
+//Create new edu group
 app.post("/groups/addEduGroup/:userId", async (req, res) => {
   try {
     console.log("TESTING...");
@@ -294,6 +212,7 @@ app.post("/groups/addEduGroup/:userId", async (req, res) => {
   }
 });
 
+//Create new rec group
 app.post("/groups/addRecGroup/:userId", async (req, res) => {
   try {
     console.log("TESTING REC GROUP POST...");
@@ -329,6 +248,91 @@ app.post("/groups/addRecGroup/:userId", async (req, res) => {
   }
 });
 
+//Add member to existing group
+app.post("/groups/eduGroups/add/:userId", async (req, res) => {
+  try {
+    //
+    const { userId } = req.params;
+    const { groupName } = req.body;
+
+    const group = await eduGroups.findOne({ groupName: groupName });
+
+    if (!group) {
+      return res.status(404).json({ message: "Group not found..." });
+    }
+
+    const user = await User.findById(userId); // grab user object
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found..." });
+    }
+
+    if (!group.users.includes(user._id)) {
+      group.users.push(user);
+      group.memberCount += 1;
+    }
+    await group.save();
+
+    console.log("Here is group data...:");
+    console.log(group);
+    console.log("Here is user data...");
+    console.log(user);
+
+    return res
+      .status(200)
+      .json({ message: "User added to group successfully!" });
+  } catch (err) {
+    console.log("There has been an error adding a user object to eduGroups...");
+    console.log(err.message);
+    return res.status(500).json({ message: "Internal Server Error...." });
+  }
+});
+
+//Add user to rec group
+app.post("/groups/recGroups/add/:userId", async (req, res) => {
+  try {
+    //
+    const { userId } = req.params;
+    const { groupName } = req.body;
+
+    const group = await recGroup.findOne({ groupName: groupName });
+
+    if (!group) {
+      return res.status(404).json({ message: "Group not found..." });
+    }
+
+    const user = await User.findById(userId); // grab user object
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found..." });
+    }
+
+    if (!group.users.includes(user._id)) {
+      group.users.push(user);
+      group.memberCount += 1;
+    }
+    await group.save();
+
+    console.log("Here is group data...:");
+    console.log(group);
+    console.log("Here is user data...");
+    console.log(user);
+
+    return res
+      .status(200)
+      .json({ message: "User added to group successfully!" });
+  } catch (err) {
+    console.log(
+      "There has been an error with adding a user object to recGroups..."
+    );
+    console.log(err.message);
+    return res.status(500).json({ message: "Internal Server Error...." });
+  }
+});
+
+//Get emails//
+
+// Async function to get emails of group members.
 async function getEmailsOfGroupMembers(userID) {
   try {
     const user = await User.findById(userID);
@@ -377,19 +381,6 @@ app.get("/getGroupMemberEmails", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error..." });
   }
 });
-
-app.get("/groups/addRecGroup", (req, res) => {
-  res.send("this page will render a form to add an educational group");
-});
-
-app.post("/groups/addRecGroupP", async (req, res) => {
-  // the following is an idea on how to get the form of the edu student group posted on /groups/recGroup/RECGROUPID
-  // const recGroup = new Group(req.body.eduGroup)
-  // await recGroup.save()
-  // res.redirect('/groups/recGroups/${recGroup._id})
-});
-
-// Unsure of JOIN ; I know that this is utilized in SQL DB's, but I believe mongoDB does not have an equivalent...
 
 // GROUPS //
 
