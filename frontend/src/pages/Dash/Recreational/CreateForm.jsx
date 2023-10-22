@@ -25,7 +25,8 @@ export default function CreateForm(props) {
 
   const filledOut = school && type && activity && groupName;
 
-  async function handleSubmit() {
+  async function handleSubmit(e) {
+    e.preventDefault();
     const formData = {
       school: school,
       type: type,
@@ -33,14 +34,16 @@ export default function CreateForm(props) {
       groupName: groupName,
     };
     try {
-      const response = await fetch("test.com/api/groups/education?id=123", {
+      const userId = "someUserId";
+      const serverEndpoint = `http://localhost:3000/api/groups/addEduGroup?userId=${userId}`;
+
+      const response = await fetch(serverEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
-
       if (response.ok) {
         console.log("Data submitted successfully");
       } else {
@@ -49,7 +52,6 @@ export default function CreateForm(props) {
     } catch (error) {
       console.error("There was an error:", error);
     }
-
     setSchool("");
     setType("");
     setActivity("");
