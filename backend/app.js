@@ -158,6 +158,17 @@ app.get("/groups/eduGroups/:id", async (req, res) => {
   res.send(stuGroup);
 });
 
+app.get("/groups/addEduGroup", (req, res) => {
+  res.send("this page will render a form to add an educational group");
+});
+
+app.post("/groups/addEduGroup", async (req, res) => {
+  // the following is an idea on how to get the form of the edu student group posted on /groups/eduGroup/GROUPID
+  // const newGroup = new Group(req.body.eduGroup)
+  // await newGroup.save()
+  // res.redirect('/groups/eduGroups/${newGroup._id})
+});
+
 app.get("/groups/recGroups", async (req, res) => {
   res.send("test index page for recGroups...");
 });
@@ -169,7 +180,20 @@ app.get("/groups/recGroups/:id", async (req, res) => {
   res.send(athGroup);
 });
 
-//
+app.get("/groups/addRecGroup", (req, res) => {
+  res.send("this page will render a form to add an educational group");
+});
+
+app.post("/groups/addRecGroup", async (req, res) => {
+  // the following is an idea on how to get the form of the edu student group posted on /groups/recGroup/RECGROUPID
+  // const recGroup = new Group(req.body.eduGroup)
+  // await recGroup.save()
+  // res.redirect('/groups/recGroups/${recGroup._id})
+});
+
+// Unsure of JOIN ; I know that this is utilized in SQL DB's, but I believe mongoDB does not have an equivalent...
+
+// GROUPS //
 
 app.get("/register", (req, res) => {
   res.render("users/register");
