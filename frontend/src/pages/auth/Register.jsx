@@ -2,10 +2,10 @@ import { useState } from "react";
 
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 
 import TextInput from "./TextInput";
 import CustomSelect from "./CustomSelect";
-import HobbiesSelect from "./HobbiesSelect";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -14,7 +14,10 @@ function Register() {
     password: "",
     school: "",
     department: "",
+    hobbies: [],
   });
+
+  const hobbies = ["Reading", "Programming", "Hiking", "Sports"];
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -58,7 +61,22 @@ function Register() {
           value={formData.department}
         />
 
-        <HobbiesSelect />
+        <FormControl fullWidth margin="normal" variant="outlined">
+          <InputLabel>Subjects</InputLabel>
+          <Select
+            multiple
+            value={formData.hobbies}
+            label="Hobbies"
+            onChange={handleChange}
+            name="hobbies"
+          >
+            {hobbies.map((hobby, index) => (
+              <MenuItem key={index} value={hobby}>
+                {hobby}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
 
         <Button
           type="submit"
