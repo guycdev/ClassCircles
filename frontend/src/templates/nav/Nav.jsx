@@ -21,7 +21,7 @@ export default function Nav(props) {
           ${type ? styles.mobileNav : ""}
           ${
             type
-              ? "d-flex flex-column align-items-center position-absolute"
+              ? "d-flex flex-column align-items-center"
               : "d-flex justify-content-between"
           }
         `}

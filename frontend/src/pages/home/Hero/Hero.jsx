@@ -6,7 +6,7 @@ import sports from "../../../assets/home/sports.png";
 
 export default function Hero() {
   return (
-    <section className="container my-5" id="home">
+    <section className="container my-5 mt-0" id="home">
       <div className="row p-0 align-items-center gap-0">
         <div className="col-xxl-6 p-0">
           <HeroCard />

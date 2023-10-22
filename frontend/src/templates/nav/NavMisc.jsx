@@ -8,7 +8,11 @@ export default function NavMisc(props) {
   const { type } = props;
 
   return (
-    <div className={`${styles.buttonContainer} ${!type ? "" : "flex-column"}`}>
+    <div
+      className={`${styles.buttonContainer} ${
+        !type ? "" : "flex-column align-items-center"
+      }`}
+    >
       <NavLink to="./log-in">
         <Button content="Login" style="primaryBtn" />
       </NavLink>
