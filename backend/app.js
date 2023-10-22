@@ -259,15 +259,43 @@ app.get("/groups/recGroups/:id", async (req, res) => {
   res.send(athGroup);
 });
 
-app.get("/groups/addRecGroup", (req, res) => {
-  res.send("this page will render a form to add an educational group");
-});
+app.post("/groups/eduGroups/add/:userId", async (req, res) => {
+  try {
+    //
+    const { userId } = req.params;
+    const { groupName } = req.body;
 
-app.post("/groups/addRecGroupP", async (req, res) => {
-  // the following is an idea on how to get the form of the edu student group posted on /groups/recGroup/RECGROUPID
-  // const recGroup = new Group(req.body.eduGroup)
-  // await recGroup.save()
-  // res.redirect('/groups/recGroups/${recGroup._id})
+    const group = await eduGroups.findOne({ groupName: groupName });
+
+    if (!group) {
+      return res.status(404).json({ message: "Group not found..." });
+    }
+
+    const user = await User.findById(userId); // grab user object
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found..." });
+    }
+
+    if (!group.users.includes(user._id)) {
+      group.users.push(user);
+      group.memberCount += 1;
+    }
+    await group.save();
+
+    console.log("Here is group data...:");
+    console.log(group);
+    console.log("Here is user data...");
+    console.log(user);
+
+    return res
+      .status(200)
+      .json({ message: "Users added to group successfully!" });
+  } catch (err) {
+    console.log("ERROR!!!!!!!!!");
+    console.log(err.message);
+    return res.status(500).json({ message: "Internal Server Error...." });
+  }
 });
 
 // Unsure of JOIN ; I know that this is utilized in SQL DB's, but I believe mongoDB does not have an equivalent...
