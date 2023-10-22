@@ -10,7 +10,8 @@
 * {
   /* font-family: "Inter", sans-serif;
   font-family: "Roboto", sans-serif; */
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Inter", sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -147,4 +148,13 @@ em {
 
 a {
   color: unset;
+  text-decoration: none;
+}
+
+.svg > div > div {
+  display: flex;
+}
+
+.redirect-span {
+  color: var(--primary);
 }

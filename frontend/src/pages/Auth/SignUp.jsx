@@ -1,11 +1,10 @@
 import { useState } from "react";
-
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
-
 import TextInput from "./TextInput";
 import CustomSelect from "./CustomSelect";
+import FormRedirect from "./FormRedirect";
+import Button from "../../components/Button";
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -19,6 +18,14 @@ function SignUp() {
 
   const hobbies = ["Reading", "Programming", "Hiking", "Sports"];
 
+  const filledOut =
+    formData.email &&
+    formData.username &&
+    formData.password &&
+    formData.school &&
+    formData.department &&
+    formData.hobbies;
+
   function handleChange(event) {
     const { name, value } = event.target;
 
@@ -28,47 +35,70 @@ function SignUp() {
     }));
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
-
-    /* 
-    User authentication here
-    */
+    try {
+      const response = await fetch("test.com/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        console.log("Data submitted successfully");
+      } else {
+        console.error("Failed to submit data:", await response.text());
+      }
+    } catch (error) {
+      console.error("There was an error:", error);
+    }
   };
 
   return (
     <>
       <h5>Create an Account</h5>
       <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-        <TextInput name="email" type="email" handleChange={handleChange} />
-        <TextInput name="username" type="text" handleChange={handleChange} />
+        <TextInput
+          name="email"
+          type="email"
+          handleChange={handleChange}
+          required={true}
+        />
+        <TextInput
+          name="username"
+          type="text"
+          handleChange={handleChange}
+          required
+        />
         <TextInput
           name="password"
           type="password"
           handleChange={handleChange}
+          required
         />
-
-        <CustomSelect
+        <TextInput
           name="school"
+          type="school"
           handleChange={handleChange}
-          value={formData.school}
+          required
         />
-
-        <CustomSelect
+        <TextInput
           name="department"
+          type="department"
           handleChange={handleChange}
-          value={formData.department}
+          required
         />
-
         <FormControl fullWidth margin="normal" variant="outlined">
-          <InputLabel>Subjects</InputLabel>
+          <InputLabel>Subjects & Hobbies</InputLabel>
           <Select
             multiple
             value={formData.hobbies}
             label="Hobbies"
             onChange={handleChange}
             name="hobbies"
+            required={true}
           >
             {hobbies.map((hobby, index) => (
               <MenuItem key={index} value={hobby}>
@@ -77,19 +107,24 @@ function SignUp() {
             ))}
           </Select>
         </FormControl>
-
-        <Button
-          type="submit"
-          fullWidth
-          sx={{
-            mt: 3,
-            mb: 2,
-            bgcolor: "primary.main",
-            color: "text.primary",
+        <FormRedirect
+          text="Have an account ? "
+          redirect={<span className="redirect-span">Login here</span>}
+          path="../log-in"
+        />
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{
+            opacity: !filledOut ? 0.5 : 1,
+            pointerEvents: !filledOut ? "none" : "unset",
+            transition: "all 0.3s",
+          }}
+          onClick={() => {
+            console.log("hi");
           }}
         >
-          Create Account
-        </Button>
+          <Button content="CREATE ACCOUNT" style="primaryBtn" />
+        </div>
       </Box>
     </>
   );

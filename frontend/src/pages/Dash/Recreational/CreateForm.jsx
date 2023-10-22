@@ -33,7 +33,7 @@ export default function CreateForm(props) {
       groupName: groupName,
     };
     try {
-      const response = await fetch("test.com/api/groups/education/add?id=123", {
+      const response = await fetch("test.com/api/groups/education?id=123", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

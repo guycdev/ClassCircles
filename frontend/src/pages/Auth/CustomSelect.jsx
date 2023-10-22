@@ -4,8 +4,9 @@ import TextField from "@mui/material/TextField";
 import { FormControl } from "@mui/material";
 
 const CustomSelect = (props) => {
-  const [value, setValue] = useState(null);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("123123");
+
+  const { handleChange, name, val } = props;
 
   const options = ["Option 1", "Option 2", "Option 3"];
 
@@ -20,8 +21,8 @@ const CustomSelect = (props) => {
     <FormControl fullWidth margin="normal" variant="outlined">
       <Autocomplete
         margin="normal"
-        value={value}
-        onChange={(event, newValue) => setValue(newValue)}
+        value={val}
+        onChange={handleChange}
         inputValue={inputValue}
         onInputChange={handleInputChange}
         options={options}
@@ -31,6 +32,7 @@ const CustomSelect = (props) => {
         )}
         freeSolo
         required
+        name={name}
       />
     </FormControl>
   );
