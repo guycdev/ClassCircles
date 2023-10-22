@@ -13,15 +13,15 @@
 
 .mobileNav {
   background-color: var(--background);
-  height: 120vh;
-  background-color: var(--background);
   box-shadow: var(--box-shadow);
   padding: 3rem 2rem;
   border-radius: 10px;
-  position: absolute;
-  top: 0;
+  top: 0px;
   left: -10px;
   z-index: 3;
+  height: 100vh;
+  width: 250px;
+  position: fixed;
 }
 
 .logoLink {
@@ -88,9 +88,9 @@
 
 .overLay {
   width: 200vw;
-  height: 140vh;
+  height: 120vh;
   background-color: white;
-  position: absolute;
+  position: fixed;
   right: 0;
   z-index: 2;
   top: 0;
