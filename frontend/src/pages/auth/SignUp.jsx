@@ -7,7 +7,7 @@ import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import TextInput from "./TextInput";
 import CustomSelect from "./CustomSelect";
 
-function Register() {
+function SignUp() {
   const [formData, setFormData] = useState({
     email: "",
     username: "",
@@ -95,4 +95,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default SignUp;

@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/home/Home";
 import AuthLayout from "./layouts/AuthLayout";
 import LogIn from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
+import SignUp from "./pages/auth/SignUp";
 
 const route = createBrowserRouter(
   createRoutesFromElements(
@@ -25,10 +25,10 @@ const route = createBrowserRouter(
         }
       />
       <Route
-        path="/register"
+        path="/sign-up"
         element={
           <AuthLayout>
-            <Register />
+            <SignUp />
           </AuthLayout>
         }
       />
