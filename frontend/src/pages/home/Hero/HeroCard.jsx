@@ -60,7 +60,7 @@ export default function HeroCard() {
         </h1>
         <p className="lead my-4">
           <AnimationText
-            content="Unlock new experiences and build meaningful connections. Your journey
+            content="Unlock new campus experiences and build meaningful connections. Your journey
           starts here."
           />
         </p>

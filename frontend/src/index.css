@@ -144,3 +144,7 @@ em {
     justify-content: flex-end !important;
   }
 }
+
+a {
+  color: unset;
+}
