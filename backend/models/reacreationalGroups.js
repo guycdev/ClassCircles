@@ -8,7 +8,7 @@ const recreationalGroupSchema = {
   },
   activity: {
     type: Boolean,
-    required: true,
+    required: false,
   },
   sport: {
     type: String,
