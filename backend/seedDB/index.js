@@ -21,9 +21,14 @@ const connectDB = async () => {
 // Seed DB with initial user.
 const seedDBUser = async () => {
   await connectDB();
-  await User.deleteMany({});
-  await recGroup.deleteMany({});
-  await Group.deleteMany({});
+
+  // DO NOT RUN DELETE THIS BLOCK UNLESS WE ARE FLUSHING THE DB.
+
+  // await User.deleteMany({});
+  // await recGroup.deleteMany({});
+  // await Group.deleteMany({});
+
+  //
 
   // Create first user.
   // const newUser = new User({
@@ -36,7 +41,7 @@ const seedDBUser = async () => {
     groupName: "Future Software Engineers",
     school: "Michigan State University",
     department: "Science",
-    users: ["653557a4dcfdd858eb77917e"],
+    users: ["65355ca3b0554119a2f81acc"],
     description:
       "Programming is fun! Come study with us! Anything from Introduction to Computer Science, all the way through Operating Systems!",
   });
@@ -45,7 +50,7 @@ const seedDBUser = async () => {
     groupName: "Math Lovers",
     school: "Portland State University",
     department: "Mathematics",
-    users: ["653557a4dcfdd858eb77917e"],
+    users: ["65355ca3b0554119a2f81acc"],
     description:
       "We love math! Computational, logic-based, novice or pro, come join us!!",
   });
@@ -54,7 +59,7 @@ const seedDBUser = async () => {
     groupName: "Poets Unite",
     school: "University of Oregon",
     department: "English",
-    users: ["653557a4dcfdd858eb77917e"],
+    users: ["65355ca3b0554119a2f81acc"],
     description: "frasier crane test",
   });
 
@@ -64,7 +69,7 @@ const seedDBUser = async () => {
     type: "type A",
     teamName: "Albany Huskies",
     playerCount: 22,
-    users: ["653557a4dcfdd858eb77917e"],
+    users: ["65355ca3b0554119a2f81acc"],
   });
 
   const recGroup2 = new recGroup({
@@ -73,7 +78,7 @@ const seedDBUser = async () => {
     type: "type C",
     teamName: "UCLA Strikers",
     playerCount: 18,
-    users: ["653557a4dcfdd858eb77917e"],
+    users: ["65355ca3b0554119a2f81acc"],
   });
 
   const recGroup3 = new recGroup({
@@ -82,7 +87,7 @@ const seedDBUser = async () => {
     type: "type D",
     teamName: "Stanford Aces",
     playerCount: 10,
-    users: ["653557a4dcfdd858eb77917e"],
+    users: ["65355ca3b0554119a2f81acc"],
   });
 
   const recGroup4 = new recGroup({
@@ -91,7 +96,7 @@ const seedDBUser = async () => {
     type: "type E",
     teamName: "Texas Thunder",
     playerCount: 12,
-    users: ["653557a4dcfdd858eb77917e"],
+    users: ["65355ca3b0554119a2f81acc"],
   });
 
   const recGroup5 = new recGroup({
@@ -100,7 +105,7 @@ const seedDBUser = async () => {
     type: "type F",
     teamName: "MIT Marlins",
     playerCount: 20,
-    users: ["653557a4dcfdd858eb77917e"],
+    users: ["65355ca3b0554119a2f81acc"],
   });
 
   const recGroup6 = new recGroup({
@@ -109,19 +114,22 @@ const seedDBUser = async () => {
     type: "type G",
     teamName: "Florida Gators",
     playerCount: 25,
-    users: ["653557a4dcfdd858eb77917e"],
+    users: ["65355ca3b0554119a2f81acc"],
   });
 
+  // DO NOT RUN UNLESS WE ARE FLUSHING THE DB //
+
   // await newUser.save();
-  await eduGroup1.save();
-  await eduGroup2.save();
-  await eduGroup3.save();
-  await recGroup1.save();
-  await recGroup2.save();
-  await recGroup3.save();
-  await recGroup4.save();
-  await recGroup5.save();
-  await recGroup6.save();
+  // await eduGroup1.save();
+  // await eduGroup2.save();
+  // await eduGroup3.save();
+  // await recGroup1.save();
+  // await recGroup2.save();
+  // await recGroup3.save();
+  // await recGroup4.save();
+  // await recGroup5.save();
+  // await recGroup6.save();
+  //
 };
 console.log("SAVING...");
 
