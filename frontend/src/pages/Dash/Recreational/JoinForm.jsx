@@ -22,7 +22,6 @@ export default function JoinForm(props) {
       teamName: "B Team",
       playerCount: 15,
     },
-    // ... (and so on for other sports and teams)
   ];
 
   const [selectedUniversity, setSelectedUniversity] = useState("");
@@ -55,7 +54,7 @@ export default function JoinForm(props) {
 
   return (
     <motion.div
-      className="col-xxl-6 col-12"
+      className="col-6"
       initial={{
         opacity: 0,
         x: 1250,

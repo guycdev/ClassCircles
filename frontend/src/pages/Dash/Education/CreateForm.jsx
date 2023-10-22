@@ -15,7 +15,10 @@ export default function CreateForm(props) {
   const [groupName, setGroupName] = useState("");
   const [count, setCount] = useState(0);
 
-  const handleSubmit = () => {
+  const filledOut = school && department && classInput && groupName;
+
+  function handleSubmit(e) {
+    e.preventDefault();
     const formData = {
       school: school,
       department: department,
@@ -27,7 +30,7 @@ export default function CreateForm(props) {
     setDepartment("");
     setClassInput("");
     setGroupName("");
-  };
+  }
 
   useEffect(() => {
     let newCount = 0;
@@ -73,7 +76,7 @@ export default function CreateForm(props) {
         </div>
         <div className="my-3">
           <ProgressBar progress={count} inputCount={4} />
-          <form className="d-flex flex-column gap-3">
+          <form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
             <FormControl fullWidth variant="outlined" margin="normal">
               <TextField
                 label="School"
@@ -112,8 +115,17 @@ export default function CreateForm(props) {
                 }}
               />
             </FormControl>
-
-            <div className="d-flex justify-content-center">
+            <div
+              className="d-flex justify-content-center"
+              style={{
+                opacity: !filledOut ? 0.5 : 1,
+                pointerEvents: !filledOut ? "none" : "unset",
+                transition: "all 0.3s",
+              }}
+              onClick={() => {
+                console.log("hi");
+              }}
+            >
               <Button content="Create Group" style="primaryBtn" />
             </div>
           </form>

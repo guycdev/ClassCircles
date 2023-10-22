@@ -6,6 +6,7 @@ import {
   Tooltip,
   Select,
   MenuItem,
+  InputLabel,
 } from "@mui/material";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { motion } from "framer-motion";
@@ -21,6 +22,8 @@ export default function CreateForm(props) {
   const [activity, setActivity] = useState("");
   const [groupName, setGroupName] = useState("");
   const [count, setCount] = useState(0);
+
+  const filledOut = school && type && activity && groupName;
 
   const handleSubmit = () => {
     const formData = {
@@ -91,26 +94,26 @@ export default function CreateForm(props) {
               />
             </FormControl>
             <FormControl fullWidth variant="outlined" margin="normal">
-              <TextField
-                label="Type"
-                value={type}
-                onChange={(e) => {
-                  setType(e.target.value);
-                }}
-                placeholder="Leisure or Athletic"
-              />
-            </FormControl>
-            <FormControl fullWidth variant="outlined" margin="normal">
+              <InputLabel id="type-label">Type</InputLabel>
               <Select
                 value={type}
+                label="Type"
                 onChange={(e) => {
                   setType(e.target.value);
                 }}
-                label="Type"
               >
                 <MenuItem value="Leisure">Leisure</MenuItem>
                 <MenuItem value="Athletic">Athletic</MenuItem>
               </Select>
+            </FormControl>
+            <FormControl fullWidth variant="outlined" margin="normal">
+              <TextField
+                label="Activity"
+                value={activity}
+                onChange={(e) => {
+                  setActivity(e.target.value);
+                }}
+              />
             </FormControl>
 
             <FormControl fullWidth variant="outlined" margin="normal">
@@ -123,7 +126,17 @@ export default function CreateForm(props) {
               />
             </FormControl>
 
-            <div className="d-flex justify-content-center">
+            <div
+              className="d-flex justify-content-center"
+              style={{
+                opacity: !filledOut ? 0.5 : 1,
+                pointerEvents: !filledOut ? "none" : "unset",
+                transition: "all 0.3s",
+              }}
+              onClick={() => {
+                console.log("hi");
+              }}
+            >
               <Button content="Create Group" style="primaryBtn" />
             </div>
           </form>
