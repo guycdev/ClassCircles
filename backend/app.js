@@ -184,7 +184,7 @@ app.get("/groups/addRecGroup", (req, res) => {
   res.send("this page will render a form to add an educational group");
 });
 
-app.post("/groups/addRecGroup", async (req, res) => {
+app.post("/groups/addRecGroupP", async (req, res) => {
   // the following is an idea on how to get the form of the edu student group posted on /groups/recGroup/RECGROUPID
   // const recGroup = new Group(req.body.eduGroup)
   // await recGroup.save()
