@@ -1,0 +1,15 @@
+@import "../../../index.css";
+
+.createCard {
+  height: 100%;
+}
+
+.MuiLinearProgress-colorPrimary {
+  background-color: var(--primary) !important;
+}
+
+.helpContainer {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}

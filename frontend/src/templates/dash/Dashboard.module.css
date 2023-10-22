@@ -1,0 +1,46 @@
+@import "../../index.css";
+
+.fullHeightContainer {
+  height: 100%;
+}
+
+.navWrapper {
+  position: unset !important;
+  height: 100%;
+}
+
+.navWrapper > *:first-child {
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--primary);
+  padding: 2rem;
+  gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: unset !important;
+  background-color: var(--background);
+}
+.navWrapper > *:first-child > *:first-child {
+  gap: 20px;
+}
+
+.dashboardNavItem {
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s;
+  background-color: white;
+}
+
+.navWrapper a:hover .dashboardNavItem {
+  transform: scale(1.02);
+  background-color: var(--primary);
+}
+
+.navWrapper a {
+  text-decoration: none;
+  color: unset;
+}
+
+.activeDashboardSelection .dashboardNavItem {
+  background-color: var(--primary);
+}

@@ -21,7 +21,7 @@
   position: absolute;
   top: 0;
   left: -10px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .logoLink {
@@ -45,9 +45,10 @@
 
 .navItems {
   gap: 20px;
+  list-style: none;
 }
 
-.navItems > a {
+.navItems > li > a {
   color: inherit;
   font-size: smaller;
   text-decoration: none;
@@ -55,7 +56,7 @@
   transition: all 0.3s ease;
 }
 
-.navItems > a::before {
+.navItems > li > a::before {
   content: "";
   position: absolute;
   width: 0;
@@ -67,11 +68,11 @@
   transition: all 0.3s ease;
 }
 
-.navItems > a:hover {
+.navItems > li > a:hover {
   color: var(--accent);
 }
 
-.navItems > a:hover::before {
+.navItems > li > a:hover::before {
   visibility: visible;
   width: 100%;
 }
@@ -91,6 +92,6 @@
   background-color: white;
   position: absolute;
   right: 0;
-  z-index: 1;
+  z-index: 2;
   top: 0;
 }

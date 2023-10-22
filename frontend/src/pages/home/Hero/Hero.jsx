@@ -1,19 +1,19 @@
 import React from "react";
 import HeroCard from "./HeroCard";
-import HeroImage from "./HeroImage";
+import HeroImage from "../../../components/HeroImage";
 import education from "../../../assets/home/education.png";
 import sports from "../../../assets/home/sports.png";
 
 export default function Hero() {
   return (
-    <section className="container my-5">
+    <section className="container my-5" id="home">
       <div className="row p-0 align-items-center gap-0">
         <div className="col-xxl-6 p-0">
           <HeroCard />
         </div>
-        <div className="col-xxl-6  container p-0 d-sm-none d-lg-block">
-          <div className="row justify-content-end">
-            <div className="col-sm-4 col-xxl-7">
+        <div className="col-xxl-6  container p-0">
+          <div className="row justify-content-center gap-3 gap-md-0 ">
+            <div className="col-8 col-md-4 col-xxl-7">
               <HeroImage
                 img={education}
                 heading="Educational Groups"
@@ -22,7 +22,7 @@ export default function Hero() {
                 id={1}
               />
             </div>
-            <div className="col-sm-4 d-xxl-none">
+            <div className="col-8 col-md-4 d-xxl-none">
               <HeroImage
                 img={sports}
                 heading="Athletic Groups"
@@ -31,7 +31,7 @@ export default function Hero() {
                 id={2}
               />
             </div>
-            <div className="col-sm-4 d-xxl-none">
+            <div className="d-xxl-none col-8 col-md-4">
               <HeroImage
                 img={sports}
                 heading="Athletic Groups"
