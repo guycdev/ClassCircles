@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
-import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import TextInput from "./TextInput";
-import CustomSelect from "./CustomSelect";
+import CustomSelect from "../../components/CustomSelect";
 import FormRedirect from "./FormRedirect";
 import Button from "../../components/Button";
 
@@ -13,10 +12,12 @@ function SignUp() {
     password: "",
     school: "",
     department: "",
+    subjects: [],
     hobbies: [],
   });
 
   const hobbies = ["Reading", "Programming", "Hiking", "Sports"];
+  const subjects = ["Math", "Computer Science", "English"];
 
   const filledOut =
     formData.email &&
@@ -90,23 +91,22 @@ function SignUp() {
           handleChange={handleChange}
           required
         />
-        <FormControl fullWidth margin="normal" variant="outlined">
-          <InputLabel>Subjects & Hobbies</InputLabel>
-          <Select
-            multiple
-            value={formData.hobbies}
-            label="Hobbies"
-            onChange={handleChange}
-            name="hobbies"
-            required={true}
-          >
-            {hobbies.map((hobby, index) => (
-              <MenuItem key={index} value={hobby}>
-                {hobby}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+
+        <CustomSelect
+          name="subjects"
+          value={formData.subjects}
+          options={subjects}
+          setFormData={setFormData}
+        />
+
+        <CustomSelect
+          name="hobbies"
+          value={formData.hobbies}
+          options={hobbies}
+          handleChange={handleChange}
+          setFormData={setFormData}
+        />
+
         <FormRedirect
           text="Have an account ? "
           redirect={<span className="redirect-span">Login here</span>}
