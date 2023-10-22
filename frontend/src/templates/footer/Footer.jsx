@@ -9,7 +9,7 @@ export default function Footer() {
       <div className={`col-lg col-5 py-2 ${styles.col}`}>
         <Logo />
         <p className="mt-2">
-          Welcome to StudySpheres, your gateway to successful collaboration and
+          Welcome to ClassCircles, your gateway to successful collaboration and
           academic excellence. We're here to help you find like-minded peers and
           create study groups that work for you. With StudySpheres, you can
           connect, learn, and excel together.
