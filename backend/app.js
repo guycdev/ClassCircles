@@ -115,6 +115,62 @@ app.post(
 //   }
 // }
 
+// USERS //
+
+app.get("/users", (req, res) => {
+  res.send("test index page where all user are shown, toss this if not needed");
+});
+
+app.get("/users/:id", async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findById(id);
+  console.log(user);
+  res.send(user);
+});
+
+// USERS //
+
+// GROUPS //
+
+app.get("/groups", (req, res) => {
+  res.send("test groups index page");
+});
+
+app.get("/groups/eduGroups", async (req, res) => {
+  res.send("test index page for eduGroups...");
+});
+
+app.get("/groups/eduGroups/:id", async (req, res) => {
+  const { id } = req.params;
+  const stuGroup = await studentGroup.findById(id);
+  console.log(stuGroup);
+  res.send(stuGroup);
+});
+
+app.get("/groups/eduGroups", async (req, res) => {
+  res.send("test index page for eduGroups...");
+});
+
+app.get("/groups/eduGroups/:id", async (req, res) => {
+  const { id } = req.params;
+  const stuGroup = await studentGroup.findById(id);
+  console.log(stuGroup);
+  res.send(stuGroup);
+});
+
+app.get("/groups/recGroups", async (req, res) => {
+  res.send("test index page for recGroups...");
+});
+
+app.get("/groups/recGroups/:id", async (req, res) => {
+  const { id } = req.params;
+  const athGroup = await recGroupGroup.findById(id);
+  console.log(athGroup);
+  res.send(athGroup);
+});
+
+//
+
 app.get("/register", (req, res) => {
   res.render("users/register");
 });
