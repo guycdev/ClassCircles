@@ -18,7 +18,7 @@ const passport = require("passport");
 // Express
 const express = require("express");
 const eduGroups = require("./models/eduGroups");
-const port = 3000;
+const port = 3003;
 const app = express();
 
 //Cors
