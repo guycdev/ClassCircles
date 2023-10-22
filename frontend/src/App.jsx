@@ -19,8 +19,8 @@ import Recreation, {
   loader as recreationLoader,
 } from "./pages/Dash/Recreational/Reacration";
 import AuthLayout from "./layouts/AuthLayout";
-import LogIn from "./pages/auth/Login";
-import SignUp from "./pages/auth/SignUp";
+import LogIn from "./pages/Auth/Login";
+import SignUp from "./pages/Auth/SignUp";
 
 const route = createBrowserRouter(
   createRoutesFromElements(
