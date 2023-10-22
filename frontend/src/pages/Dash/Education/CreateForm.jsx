@@ -20,12 +20,30 @@ export default function CreateForm(props) {
   async function handleSubmit(e) {
     e.preventDefault();
     const formData = {
-      school: school,
-      department: department,
-      class: classInput,
-      groupName: groupName,
+      school,
+      department,
+      classInput,
+      groupName,
     };
-    console.log(formData);
+
+    const userId = "someUserId";
+    const serverEndpoint = `http://localhost:3000/api/groups/addEduGroup?userId=${userId}`;
+
+    try {
+      const response = await fetch(serverEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      console.log("Group created:", data);
+    } catch (error) {
+      console.error("There was an error creating the group", error);
+    }
+
     setSchool("");
     setDepartment("");
     setClassInput("");
