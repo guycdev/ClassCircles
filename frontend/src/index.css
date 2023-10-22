@@ -121,7 +121,7 @@ em {
 }
 
 .rfm-marquee-container * {
-  margin: 0rem 1rem;
+  margin: 0rem 1.25rem;
 }
 
 .rfm-marquee-container svg {
@@ -157,4 +157,8 @@ a {
 
 .redirect-span {
   color: var(--primary);
+}
+
+#home button {
+  min-width: 150px !important;
 }

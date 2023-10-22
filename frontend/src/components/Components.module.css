@@ -27,10 +27,11 @@
   border: none;
   border-radius: 10px;
   font-size: 0.8rem;
-  padding: 0.4rem 1.5rem;
+  padding: 0.4rem 1.25rem;
   box-shadow: var(--box-shadow);
   transition: all 0.3s;
   border: thin solid grey;
+  min-width: 100px;
 }
 
 .primaryBtn {

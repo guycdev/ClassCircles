@@ -1,6 +1,9 @@
 import React from "react";
 import ServiceCard from "./ServiceCard";
 import { Typography } from "@mui/material";
+import studying from "../../../assets/home/study.png";
+import sports from "../../../assets/home/sports2.png";
+import improv from "../../../assets/home/improv.jpg";
 
 export default function Programs() {
   return (
@@ -15,21 +18,21 @@ export default function Programs() {
       <div className="row justify-content-center d-flex gap-3 gap-md-0">
         <div className="col-10 col-md-4">
           <ServiceCard
-            imageUrl="path_to_image1.jpg"
+            imageUrl={studying}
             serviceName="Educational Programs"
             description="From study groups to hackathon communities we offer it all"
           />
         </div>
         <div className="col-10 col-md-4">
           <ServiceCard
-            imageUrl="path_to_image2.jpg"
+            imageUrl={sports}
             serviceName="Athletic Teams"
             description="Looking for an intermurial community? Checkout our offerings"
           />
         </div>
         <div className="col-10 col-md-4">
           <ServiceCard
-            imageUrl="path_to_image3.jpg"
+            imageUrl={improv}
             serviceName="Hobbie Groups"
             description="Have a unique hobbie? Explore out diverse hobbie groups"
           />

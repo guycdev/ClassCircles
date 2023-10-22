@@ -5,6 +5,8 @@ import Button from "../../../components/Button";
 import MiscCard from "./MiscCard";
 import BackgroundCircles from "../../../components/BackgroundCircles";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export default function HeroCard() {
   return (
@@ -64,9 +66,13 @@ export default function HeroCard() {
           starts here."
           />
         </p>
-        <div className="d-flex flex-column align-items-start gap-3">
-          <Button content="Learn More" style="primaryBtn" />
-          <Button content="Learn More" style="secondaryBtn" />
+        <div className="d-flex flex-column align-items-start gap-3 row">
+          <HashLink to="#faq">
+            <Button content="Learn More" style="primaryBtn" />
+          </HashLink>
+          <NavLink to="/sign-up">
+            <Button content="Sign Up" style="secondaryBtn" />
+          </NavLink>
         </div>
       </div>
       <div className="line-break"></div>

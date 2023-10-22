@@ -3,6 +3,7 @@ import { ReactSVG } from "react-svg";
 import lineGraph from "../../../assets/data/line-graph.svg";
 import barGraph from "../../../assets/data/bar-graph.svg";
 import styles from "./About.module.css";
+import { NavLink } from "react-router-dom";
 
 function About() {
   return (
@@ -18,9 +19,9 @@ function About() {
               really difficult class? Use ClassCircles to find a group by school
               and course. Get started by clicking the button below!
             </p>
-            <div className="d-flex justify-content-center">
+            <NavLink className="d-flex justify-content-center" to="./sign-up">
               <Button content="Find a group" style="primaryBtn" />
-            </div>
+            </NavLink>
           </div>
         </article>
 

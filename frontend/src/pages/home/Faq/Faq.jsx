@@ -12,7 +12,7 @@ export default function Faq() {
   const [id, setId] = useState(0);
 
   return (
-    <section className="container">
+    <section className="container" id="faq">
       <div className="row justify-content-center my-3 gap-3 gap-md-0">
         <div className="col-12 col-md-6 ">
           <Accordion

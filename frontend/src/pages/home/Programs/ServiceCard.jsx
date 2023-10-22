@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import Button from "../../../components/Button";
+import { NavLink } from "react-router-dom";
 
 const ServiceImage = styled(CardMedia)({
   height: 250,
@@ -25,7 +26,7 @@ export default function ServiceCard(props) {
         justifyContent: "space-between",
       }}
     >
-      <ServiceImage image={imageUrl} title={serviceName} />
+      <ServiceImage image={imageUrl} title={serviceName} className="rounded" />
       <CardContent>
         <Typography variant="h6" component="div" className="text-center">
           {serviceName}
@@ -38,9 +39,9 @@ export default function ServiceCard(props) {
           {description}
         </Typography>
       </CardContent>
-      <CardActions className="d-flex justify-content-center my-4">
+      <NavLink className="d-flex justify-content-center my-4" to="./sign-up">
         <Button content="Sign up" style="primaryBtn" />
-      </CardActions>
+      </NavLink>
     </div>
   );
 }

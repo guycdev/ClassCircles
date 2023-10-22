@@ -56,22 +56,19 @@ const TestimonialSection = () => {
         </div>
         <div className="col-md-9 container col-12">
           <div className="row flex-column flex-md-row gap-4 gap-md-0">
-            <div className="col-12 col-md-4">
-              <TestimonialBox className="card d-flex flex-column gap-2">
+            <div className="col-12 col-md-4 h-100">
+              <TestimonialBox className="card d-flex flex-column gap-2 ">
                 <Rating value={5} readOnly />
                 <Typography variant="body1">
-                  Reliable and efficient! The testing services provided by
-                  Releasy went beyond what we expected.
+                  Amazing service, met a great group for my schools local
+                  hackathon and some people to exercise with.
                 </Typography>
                 <Box display="flex" alignItems="center" gap="8px">
-                  <Avatar
-                    src="path_to_lolla_smith_image.jpg"
-                    alt="Lolla Smith"
-                  />
+                  <Avatar alt="Will Smith" />
                   <Box>
-                    <Typography variant="body1">Lolla Smith</Typography>
-                    <Typography variant="body2">Self-Employed</Typography>
-                    <Typography variant="body2">Jul 12, 2023</Typography>
+                    <Typography variant="body1">Will Smith</Typography>
+                    <Typography variant="body2">Oregon State</Typography>
+                    <Typography variant="body2">Oct 20, 2023</Typography>
                   </Box>
                 </Box>
               </TestimonialBox>
@@ -80,18 +77,15 @@ const TestimonialSection = () => {
               <TestimonialBox className="card d-flex flex-column gap-2">
                 <Rating value={5} readOnly />
                 <Typography variant="body1">
-                  Reliable and efficient! The testing services provided by
-                  Releasy went beyond what we expected.
+                  Met such a fun group of stand up comedians here, an easy
+                  solution to meet people on campus!
                 </Typography>
                 <Box display="flex" alignItems="center" gap="8px">
-                  <Avatar
-                    src="path_to_lolla_smith_image.jpg"
-                    alt="Lolla Smith"
-                  />
+                  <Avatar alt="Jack Doh" />
                   <Box>
-                    <Typography variant="body1">Lolla Smith</Typography>
-                    <Typography variant="body2">Self-Employed</Typography>
-                    <Typography variant="body2">Jul 12, 2023</Typography>
+                    <Typography variant="body1">Jack Doh</Typography>
+                    <Typography variant="body2">UCLA</Typography>
+                    <Typography variant="body2">Oct 21, 2023</Typography>
                   </Box>
                 </Box>
               </TestimonialBox>
@@ -100,18 +94,15 @@ const TestimonialSection = () => {
               <TestimonialBox className="card d-flex flex-column gap-2">
                 <Rating value={5} readOnly />
                 <Typography variant="body1">
-                  Reliable and efficient! The testing services provided by
-                  Releasy went beyond what we expected.
+                  Amazing opportunity to connect with upper-classmen and learn
+                  more about your program.
                 </Typography>
                 <Box display="flex" alignItems="center" gap="8px">
-                  <Avatar
-                    src="path_to_lolla_smith_image.jpg"
-                    alt="Lolla Smith"
-                  />
+                  <Avatar alt="Lolla Smith" />
                   <Box>
                     <Typography variant="body1">Lolla Smith</Typography>
-                    <Typography variant="body2">Self-Employed</Typography>
-                    <Typography variant="body2">Jul 12, 2023</Typography>
+                    <Typography variant="body2">Portland State</Typography>
+                    <Typography variant="body2">Oct 22, 2023</Typography>
                   </Box>
                 </Box>
               </TestimonialBox>

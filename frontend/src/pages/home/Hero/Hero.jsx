@@ -3,6 +3,8 @@ import HeroCard from "./HeroCard";
 import HeroImage from "../../../components/HeroImage";
 import education from "../../../assets/home/education.png";
 import sports from "../../../assets/home/sports.png";
+import hobbies from "../../../assets/home/hobbies.png";
+import { HashLink } from "react-router-hash-link";
 
 export default function Hero() {
   return (
@@ -13,33 +15,33 @@ export default function Hero() {
         </div>
         <div className="col-xxl-6  container p-0">
           <div className="row justify-content-center gap-3 gap-md-0 ">
-            <div className="col-8 col-md-4 col-xxl-7">
+            <HashLink className="col-8 col-md-4 col-xxl-7 small" to="#faq">
               <HeroImage
                 img={education}
                 heading="Educational Groups"
-                text="Lorem ipsum dolor sit amet."
-                buttonText="Educational study groups"
+                text="From study groups to tutors we have it all"
+                buttonText="Learn More"
                 id={1}
               />
-            </div>
-            <div className="col-8 col-md-4 d-xxl-none">
+            </HashLink>
+            <HashLink className="col-8 col-md-4 d-xxl-none" to="#faq">
               <HeroImage
                 img={sports}
                 heading="Athletic Groups"
-                text="Lorem ipsum dolor sit amet."
-                buttonText="Educational study groups"
+                text="Recreational and competitve leagues"
+                buttonText="Learn More"
                 id={2}
               />
-            </div>
-            <div className="d-xxl-none col-8 col-md-4">
+            </HashLink>
+            <HashLink className="d-xxl-none col-8 col-md-4" to="#faq">
               <HeroImage
-                img={sports}
-                heading="Athletic Groups"
-                text="Lorem ipsum dolor sit amet."
-                buttonText="Educational study groups"
+                img={hobbies}
+                heading="Recreational Groups"
+                text="Niche hobbies and fun times"
+                buttonText="Learn More"
                 id={2}
               />
-            </div>
+            </HashLink>
           </div>
         </div>
       </div>

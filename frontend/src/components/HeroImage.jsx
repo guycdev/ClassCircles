@@ -8,7 +8,7 @@ export default function HeroImage(props) {
 
   return (
     <motion.div
-      className="card"
+      className="card d-flex h-100 text-center"
       initial={{
         x: 1250,
       }}
@@ -34,7 +34,7 @@ export default function HeroImage(props) {
           </div>
         )}
       </div>
-      <div className="card-body d-flex flex-column justify-content-center align-items-center gap-1">
+      <div className="card-body d-flex flex-column justify-content-between align-items-center gap-2">
         <h5 className="card-title text-center border-bottom py-1">{heading}</h5>
         <p className="card-text">{text}</p>
         <Button content={buttonText} style="primaryBtn" />
