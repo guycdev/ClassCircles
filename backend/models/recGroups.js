@@ -14,7 +14,7 @@ const recGroupSchema = {
     type: String,
     required: true,
   },
-  teamName: {
+  groupName: {
     type: String,
     required: false,
   },
