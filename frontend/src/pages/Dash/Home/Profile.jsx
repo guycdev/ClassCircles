@@ -1,15 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Card,
-  CardContent,
-  TextField,
-  Avatar,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Box,
-} from "@mui/material";
+import { Card, CardContent, TextField, Avatar, Box } from "@mui/material";
 import styles from "./DashboardHome.module.css";
 import { Settings } from "@mui/icons-material";
 import { ThemeProvider } from "@emotion/react";
@@ -145,19 +135,6 @@ export default function Profile() {
               setFormData={setUserData}
               options={[]}
             />
-
-            {/*
-            <FormControl fullWidth margin="normal" variant="outlined">
-              <InputLabel>Subjects</InputLabel>
-              <Select multiple value={user.subjects} label="Subjects">
-                {user.subjects.map((subject, index) => (
-                  <MenuItem key={index} value={subject}>
-                    {subject}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-                */}
 
             <CustomSelect
               name="hobbies"
