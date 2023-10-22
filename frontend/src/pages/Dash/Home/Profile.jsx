@@ -63,7 +63,7 @@ export default function Profile() {
               alignItems="center"
               justifyContent={"space-between"}
             >
-              <h3 className="fw-bold">Your Profile: </h3>
+              <h3 className="fw-bold">Your Profile </h3>
               <div onClick={handleClick}>
                 <Avatar
                   alt="Profile Picture"

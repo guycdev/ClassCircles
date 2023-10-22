@@ -17,6 +17,7 @@ export default function DashboardCards() {
         text="Find your people today!"
         id={0}
         examples={["Basketball", "Soccer", "Tennis", "Pickleball", "Yoga"]}
+        to="./education"
       />
       <HeroImage
         img={education}
@@ -25,6 +26,7 @@ export default function DashboardCards() {
         text="Find your people today!"
         id={1}
         examples={["Calculus", "Networks", "Operating Systems"]}
+        to="./recreation"
       />
       <HeroImage
         img={hobbies}
@@ -33,6 +35,7 @@ export default function DashboardCards() {
         text="Find your people today!"
         id={2}
         examples={["Singing", "Poetry Slams", "Gaming"]}
+        to="./recreation"
       />
     </div>
   );

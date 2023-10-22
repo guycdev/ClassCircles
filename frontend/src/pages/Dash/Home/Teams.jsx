@@ -10,7 +10,7 @@ export default function Teams() {
   const teams = [
     {
       teamName: "Alpha Warriors",
-      teamLogo: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+      teamLogo: "https://xsgames.co/randomusers/avatar.php?g=pixel",
       memberCount: 5,
       members: [
         "john.doe@alpha.com",
@@ -22,7 +22,7 @@ export default function Teams() {
     },
     {
       teamName: "Beta Champions",
-      teamLogo: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+      teamLogo: "https://xsgames.co/randomusers/avatar.php?g=pixel",
       memberCount: 4,
       members: [
         "michael.white@beta.com",
@@ -33,7 +33,7 @@ export default function Teams() {
     },
     {
       teamName: "Gamma Titans",
-      teamLogo: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+      teamLogo: "https://xsgames.co/randomusers/avatar.php?g=pixel",
       memberCount: 3,
       members: [
         "william.moore@gamma.com",
@@ -43,7 +43,7 @@ export default function Teams() {
     },
     {
       teamName: "Alpha Warriors",
-      teamLogo: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+      teamLogo: "https://xsgames.co/randomusers/avatar.php?g=pixel",
       memberCount: 5,
       members: [
         "john.doe@alpha.com",
@@ -55,7 +55,7 @@ export default function Teams() {
     },
     {
       teamName: "Beta Champions",
-      teamLogo: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+      teamLogo: "https://xsgames.co/randomusers/avatar.php?g=pixel",
       memberCount: 4,
       members: [
         "michael.white@beta.com",
@@ -66,7 +66,7 @@ export default function Teams() {
     },
     {
       teamName: "Gamma Titans",
-      teamLogo: "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+      teamLogo: "https://xsgames.co/randomusers/avatar.php?g=pixel",
       memberCount: 3,
       members: [
         "william.moore@gamma.com",
@@ -100,7 +100,7 @@ export default function Teams() {
           <img
             src={team.teamLogo}
             alt={`${team.name} logo`}
-            className="rounded"
+            className={`rounded ${styles.teamImg}`}
           />
           <h5>{team.teamName}</h5>
           <div className={styles.helpContainer}>
@@ -126,8 +126,8 @@ export default function Teams() {
   return (
     <div className={`col-lg-7 card gap-4`}>
       <div className="pb-1 border-bottom">
-        <h3 className="fw-bold">Your Teams: </h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        <h3 className="fw-bold">Your Teams </h3>
+        <p>Use the chat icon to get in touch with your group members</p>
       </div>
       <div className={styles.teamsContainer}>{teamElements}</div>
     </div>

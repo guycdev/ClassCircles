@@ -2,9 +2,10 @@ import React from "react";
 import Button from "./Button";
 import { motion } from "framer-motion";
 import styles from "./Components.module.css";
+import { NavLink } from "react-router-dom";
 
 export default function HeroImage(props) {
-  const { img, heading, text, buttonText, id, examples } = props;
+  const { img, heading, text, buttonText, id, examples, to } = props;
 
   return (
     <motion.div
@@ -37,7 +38,13 @@ export default function HeroImage(props) {
       <div className="card-body d-flex flex-column justify-content-between align-items-center gap-2">
         <h5 className="card-title text-center border-bottom py-1">{heading}</h5>
         <p className="card-text">{text}</p>
-        <Button content={buttonText} style="primaryBtn" />
+        {to ? (
+          <NavLink to={to}>
+            <Button content={buttonText} style="primaryBtn" />
+          </NavLink>
+        ) : (
+          <Button content={buttonText} style="primaryBtn" />
+        )}
       </div>
     </motion.div>
   );

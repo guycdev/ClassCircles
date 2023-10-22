@@ -93,3 +93,7 @@
 .cards > div {
   align-items: center;
 }
+
+.teamImg {
+  width: 45px;
+}
