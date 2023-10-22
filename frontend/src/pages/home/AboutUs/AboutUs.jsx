@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./AboutUs.module.css";
 import AboutUsChart from "./AboutUsChart";
 import Button from "../../../components/Button";
+import { NavLink } from "react-router-dom";
 
 export default function AboutUs() {
   return (
@@ -35,7 +36,9 @@ export default function AboutUs() {
                     student experience.
                   </p>
                   <div className="d-flex justify-content-start my-3">
-                    <Button content="Sign Up" style="primaryBtn" />
+                    <NavLink to="./sign-up">
+                      <Button content="Sign Up" style="primaryBtn" />
+                    </NavLink>
                   </div>
                 </div>
               </div>

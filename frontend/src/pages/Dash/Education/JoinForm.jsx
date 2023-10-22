@@ -5,7 +5,7 @@ import ProgressBar from "../../../components/ProgressBar";
 import { motion } from "framer-motion";
 
 export default function JoinForm(props) {
-  const { title, subheading } = props;
+  const { title, subheading, data } = props;
 
   const groups = [
     {

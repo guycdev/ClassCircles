@@ -17,7 +17,7 @@ export default function CreateForm(props) {
 
   const filledOut = school && department && classInput && groupName;
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const formData = {
       school: school,

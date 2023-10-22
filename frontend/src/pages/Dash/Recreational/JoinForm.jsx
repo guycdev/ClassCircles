@@ -5,7 +5,7 @@ import ProgressBar from "../../../components/ProgressBar";
 import { motion } from "framer-motion";
 
 export default function JoinForm(props) {
-  const { title, subheading } = props;
+  const { title, subheading, join } = props;
 
   const teams = [
     {
@@ -51,6 +51,10 @@ export default function JoinForm(props) {
       team.sport === selectedSport &&
       team.division === selectedDivision
   );
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+  }
 
   return (
     <motion.div

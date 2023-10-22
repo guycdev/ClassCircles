@@ -9,8 +9,12 @@ export default function NavMisc(props) {
 
   return (
     <div className={`${styles.buttonContainer} ${!type ? "" : "flex-column"}`}>
-      <Button content="Login" style="primaryBtn" />
-      <Button content="Sign Up" style="secondaryBtn" />
+      <NavLink to="./log-in">
+        <Button content="Login" style="primaryBtn" />
+      </NavLink>
+      <NavLink to="./sign-up">
+        <Button content="Sign Up" style="secondaryBtn" />
+      </NavLink>
       <NavLink to="./dashboard">
         <Button content="Dashboard" style="primaryBtn" />
       </NavLink>

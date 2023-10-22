@@ -25,19 +25,36 @@ export default function CreateForm(props) {
 
   const filledOut = school && type && activity && groupName;
 
-  const handleSubmit = () => {
+  async function handleSubmit() {
     const formData = {
       school: school,
       type: type,
       activity: activity,
       groupName: groupName,
     };
-    console.log(formData);
+    try {
+      const response = await fetch("test.com/api/groups/education/add?id=123", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log("Data submitted successfully");
+      } else {
+        console.error("Failed to submit data:", await response.text());
+      }
+    } catch (error) {
+      console.error("There was an error:", error);
+    }
+
     setSchool("");
     setType("");
     setActivity("");
     setGroupName("");
-  };
+  }
 
   useEffect(() => {
     let newCount = 0;
