@@ -4,14 +4,50 @@ import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
 import Button from "../../components/Button";
 import FormRedirect from "./FormRedirect";
+import { useNavigate } from "react-router-dom";
 
 import TextInput from "./TextInput";
 
-function LogIn() {
+//Login auth for when backend auth is deployed / Action api from react-router is integrated
+export async function action() {
+  try {
+    const formData = await obj.request.formData();
+    const email = formData.get("email");
+    const pass = formData.get("pass");
+
+    const returnObj = {
+      email: email,
+      pass: pass,
+    };
+
+    const data = await fetch("http://testurl.com:3000/api/account/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(returnObj),
+      credentials: "include",
+    });
+    if (data.status == 401) {
+      return "User does not exist";
+    }
+
+    console.log("hi");
+
+    return redirect("../dashboard");
+  } catch (err) {
+    return err.message;
+  }
+}
+
+export default function Login() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const [errorMessage, setErrorMessage] = useState("");
 
   const filledOut = formData.email && formData.password;
 
@@ -23,19 +59,24 @@ function LogIn() {
       [name]: value,
     }));
   }
-
+  //Dummy auth
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
 
-    /* 
-    User authentication here
-    */
+    if (formData.email == "t@example.com" && formData.password == "Test123") {
+      console.log("hui");
+      navigate("/dashboard");
+    } else {
+      setErrorMessage("User does not exist");
+    }
   };
 
   return (
     <>
       <h5>Sign in</h5>
+      {errorMessage && (
+        <h2 className="my-4 text-danger fw-bold">{errorMessage}</h2>
+      )}
       <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
         <TextInput name="email" type="text" handleChange={handleChange} />
         <TextInput
@@ -60,15 +101,10 @@ function LogIn() {
             pointerEvents: !filledOut ? "none" : "unset",
             transition: "all 0.3s",
           }}
-          onClick={() => {
-            console.log("hi");
-          }}
         >
-          <Button content="CREATE ACCOUNT" style="primaryBtn" />
+          <Button content="LOGIN" style="primaryBtn" />
         </div>
       </Box>
     </>
   );
 }
-
-export default LogIn;
