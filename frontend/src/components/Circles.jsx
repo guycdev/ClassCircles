@@ -12,14 +12,15 @@ export default function Circles(props) {
         className={styles.circle}
         style={{ backgroundColor: `${color}` }}
         initial={{
-          y: 500,
+          y: 1000,
           opacity: 0,
         }}
         animate={{
           y: 0,
           opacity: 1,
           transition: {
-            delay: index * 0.1,
+            delay: index * 0.1 + 0.2,
+            duration: 0.7,
           },
         }}
       ></motion.div>
