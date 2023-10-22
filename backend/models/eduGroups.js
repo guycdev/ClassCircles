@@ -1,26 +1,30 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const recreationalGroupSchema = {
-  schoolName: {
-    type: String,
-    required: true,
-  },
-  activity: {
-    type: Boolean,
-    required: false,
-  },
-  sport: {
-    type: String,
-    required: true,
-  },
+const GroupSchema = new Schema({
   groupName: {
+    required: false,
     type: String,
-    required: true,
   },
   memberCount: {
     type: Number,
     required: false,
+  },
+  school: {
+    type: String,
+    required: false,
+  },
+  department: {
+    type: String,
+    required: false,
+  },
+  class: {
+    type: String,
+    required: false,
+  },
+  description: {
+    required: false,
+    type: String,
   },
   users: [
     {
@@ -34,6 +38,5 @@ const recreationalGroupSchema = {
       ref: "Comment", // Use Comment model; there may be many comments per group.
     },
   ],
-};
-
-module.exports = mongoose.model("recreationalGroup", recreationalGroupSchema);
+});
+module.exports = mongoose.model("Group", GroupSchema);

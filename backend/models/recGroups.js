@@ -1,30 +1,26 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const GroupSchema = new Schema({
-  title: {
-    required: false,
-    type: String,
-  },
-  memberCount: {
-    type: Number,
-    required: false,
-  },
+const recGroupSchema = {
   school: {
     type: String,
-    required: false,
+    required: true,
   },
-  department: {
+  activity: {
     type: String,
     required: false,
   },
-  class: {
+  type: {
+    type: String,
+    required: true,
+  },
+  teamName: {
     type: String,
     required: false,
   },
-  description: {
+  playerCount: {
+    type: Number,
     required: false,
-    type: String,
   },
   users: [
     {
@@ -38,5 +34,6 @@ const GroupSchema = new Schema({
       ref: "Comment", // Use Comment model; there may be many comments per group.
     },
   ],
-});
-module.exports = mongoose.model("Group", GroupSchema);
+};
+
+module.exports = mongoose.model("recGroup", recGroupSchema);

@@ -8,8 +8,8 @@ const axios = require("axios").default;
 
 // MongoDB Models
 const User = require("./models/users");
-const studentGroup = require("./models/groups");
-const recGroup = require("./models/reacreationalGroups");
+const studentGroup = require("./models/eduGroups");
+const recGroup = require("./models/recGroups");
 
 // Passport required packages
 const localStrategyPassport = require("passport-local"); // local authentication for passport
@@ -17,7 +17,6 @@ const passport = require("passport");
 
 // Express
 const express = require("express");
-const reacreationalGroups = require("./models/reacreationalGroups");
 const port = 3000;
 const app = express();
 
@@ -137,14 +136,21 @@ app.get("/groups", (req, res) => {
 });
 
 app.get("/groups/eduGroups", async (req, res) => {
-  res.send("test index page for eduGroups...");
+  // res.send("test index page for eduGroups...");
+  // Return an array of objects (groups, contains group name, dept, class, group name, school name)
+  const allEduGroups = await studentGroup.find({});
+  res.send(allEduGroups);
+  console.log("You found all the edu groups!");
+  return allEduGroups;
 });
 
-app.get("/groups/eduGroups/:id", async (req, res) => {
-  const { id } = req.params;
-  const stuGroup = await studentGroup.findById(id);
-  console.log(stuGroup);
-  res.send(stuGroup);
+app.get("/groups/recGroups", async (req, res) => {
+  const allRecGroups = await recGroup.find({});
+  res.send(allRecGroups);
+  console.log("Found all the rec groups!");
+  return allRecGroups;
+
+  // return an array of objects (school name, activity, sport group name)
 });
 
 app.get("/groups/eduGroups", async (req, res) => {
