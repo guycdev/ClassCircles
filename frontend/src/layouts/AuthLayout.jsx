@@ -8,7 +8,7 @@ import Paper from "@mui/material/Paper";
 import { Link } from "@mui/material";
 
 import styles from "./auth.module.css";
-import theme from "../pages/auth/theme";
+import theme from "../pages/Auth/theme";
 import image from "../assets/students-studying.jpg";
 
 function Copyright() {
