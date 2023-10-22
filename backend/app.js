@@ -17,6 +17,7 @@ const passport = require("passport");
 
 // Express
 const express = require("express");
+const eduGroups = require("./models/eduGroups");
 const port = 3000;
 const app = express();
 
@@ -168,12 +169,84 @@ app.get("/groups/addEduGroup", (req, res) => {
   res.send("this page will render a form to add an educational group");
 });
 
-app.post("/groups/addEduGroup", async (req, res) => {
-  // the following is an idea on how to get the form of the edu student group posted on /groups/eduGroup/GROUPID
-  // const newGroup = new Group(req.body.eduGroup)
-  // await newGroup.save()
-  // res.redirect('/groups/eduGroups/${newGroup._id})
+app.post("/groups/addEduGroup/:userId", async (req, res) => {
+  // where userID is an existing mongoDB userID
+  try {
+    console.log("TESTING...");
+    const { userId } = req.params;
+    const { school, department, classInput, groupName } = req.body;
+    const user = await User.findById(userId);
+    console.log("RETURNING USER...");
+    console.log(user);
+
+    // Check if user exists...
+    if (!user) {
+      return res.status(400).json({ message: "User not found..." });
+    }
+
+    // Create new group
+    const newGroup = new eduGroups({
+      title: groupName,
+      school,
+      department,
+      class: classInput,
+      users: [userId], // Adding the user ID by default
+      memberCount: 1, // Since there's 1 user by default
+    });
+
+    await newGroup.save();
+    return res.status(200).json({ status: "Success" });
+
+    // Send response
+  } catch (err) {
+    console.log("ERROR: Could not fetch page...");
+    console.log(err.message);
+    res.status(500).send("Server Error...");
+  }
 });
+
+app.post("/groups/addRecGroup/:userId", async (req, res) => {
+  // where userID is an existing mongoDB userID
+  try {
+    console.log("TESTING REC GROUP POST...");
+    const { userId } = req.params;
+    const { school, type, activity, groupName } = req.body;
+    const user = await User.findById(userId);
+    console.log("RETURNING USER...");
+    console.log(user);
+
+    // Check if user exists...
+    if (!user) {
+      return res.status(400).json({ message: "User not found..." });
+    }
+
+    // Create new group
+    const newGroup = new eduGroups({
+      title: groupName,
+      school,
+      type,
+      activity,
+      users: [userId], // Adding the user ID by default
+      memberCount: 1, // Since there's 1 user by default
+    });
+
+    await newGroup.save();
+    return res.status(200).json({ status: "Success recGroup" });
+
+    // Send response
+  } catch (err) {
+    console.log("ERROR: Could not fetch page...");
+    console.log(err.message);
+    res.status(500).send("Server Error...");
+  }
+});
+
+// app.post("/groups/addEduGroup", async (req, res) => {
+// the following is an idea on how to get the form of the edu student group posted on /groups/eduGroup/GROUPID
+// const newGroup = new Group(req.body.eduGroup)
+// await newGroup.save()
+// res.redirect('/groups/eduGroups/${newGroup._id})
+// });
 
 app.get("/groups/recGroups", async (req, res) => {
   res.send("test index page for recGroups...");
