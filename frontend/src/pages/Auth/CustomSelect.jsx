@@ -1,38 +1,53 @@
 import { useState } from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import { FormControl } from "@mui/material";
+import { FormControl, Chip } from "@mui/material";
 
 const CustomSelect = (props) => {
-  const [inputValue, setInputValue] = useState("123123");
-
   const { handleChange, name, val } = props;
 
-  const options = ["Option 1", "Option 2", "Option 3"];
+  const [inputValue, setInputValue] = useState("");
+  const [selectedOptions, setSelectedOptions] = useState(val);
 
-  const label = props.name[0].toUpperCase() + props.name.slice(1) + " *";
+  const options = ["Reading", "Hiking", "Sports", "Programming"];
 
   function handleInputChange(event, newInputValue) {
     setInputValue(newInputValue);
-    props.handleChange(event);
+    handleChange(event);
   }
 
   return (
     <FormControl fullWidth margin="normal" variant="outlined">
       <Autocomplete
-        margin="normal"
-        value={val}
-        onChange={handleChange}
+        value={selectedOptions}
+        onChange={(event, newValue) => {
+          setSelectedOptions(newValue);
+        }}
         inputValue={inputValue}
         onInputChange={handleInputChange}
         options={options}
         fullWidth
         renderInput={(params) => (
-          <TextField {...params} label={label} name="school" />
+          <TextField {...params} label="Hobbies" name="Hobbies" />
         )}
         freeSolo
         required
         name={name}
+        multiple
+        renderTags={(value, getTagProps) =>
+          value.map((option, index) => (
+            <Chip
+              key={index}
+              label={option}
+              onDelete={() => {
+                const newOptions = [...selectedOptions];
+                newOptions.splice(index, 1);
+                setSelectedOptions(newOptions);
+              }}
+              {...getTagProps({ index })}
+            />
+          ))
+        }
       />
     </FormControl>
   );

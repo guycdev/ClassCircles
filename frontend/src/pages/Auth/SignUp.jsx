@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
-import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import TextInput from "./TextInput";
 import CustomSelect from "./CustomSelect";
 import FormRedirect from "./FormRedirect";
@@ -90,6 +89,14 @@ function SignUp() {
           handleChange={handleChange}
           required
         />
+
+        <CustomSelect
+          name={hobbies}
+          val={formData.hobbies}
+          handleChange={handleChange}
+        />
+
+        {/*
         <FormControl fullWidth margin="normal" variant="outlined">
           <InputLabel>Subjects & Hobbies</InputLabel>
           <Select
@@ -107,6 +114,8 @@ function SignUp() {
             ))}
           </Select>
         </FormControl>
+        */}
+
         <FormRedirect
           text="Have an account ? "
           redirect={<span className="redirect-span">Login here</span>}
