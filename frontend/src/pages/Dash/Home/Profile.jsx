@@ -59,7 +59,7 @@ export default function Profile() {
   }
 
   return (
-    <Card className={`col-lg-4 card`}>
+    <Card className={`col-lg-4 card p-0`}>
       <CardContent>
         <div className="border-bottom pb-1">
           <Box
