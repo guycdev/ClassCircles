@@ -6,23 +6,6 @@ import { ThemeProvider } from "@emotion/react";
 import theme from "../../../theme";
 import CustomSelect from "../../../components/CustomSelect";
 
-const temp = {
-  school: "University of Example",
-  department: "Computer Science",
-  subjects: [
-    "Data Structures",
-    "Algorithms",
-    "Web Development",
-    "Database Systems",
-  ],
-  graduationYear: 2025,
-  name: "John Doe",
-  email: "johndoe@example.edu",
-  hobbies: ["Reading", "Hiking", "Coding", "Photography"],
-  funFact:
-    "I once participated in a national coding competition and won second place!",
-};
-
 export default function Profile(props) {
   const { data } = props;
   const { userData } = data;

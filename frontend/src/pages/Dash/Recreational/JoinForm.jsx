@@ -7,8 +7,6 @@ import { motion } from "framer-motion";
 export default function JoinForm(props) {
   const { title, subheading, data } = props;
 
-  console.log(data);
-
   const teams = data;
 
   const [selectedSchool, setSelectedSchool] = useState("");
@@ -40,6 +38,25 @@ export default function JoinForm(props) {
   );
   async function handleSubmit(e) {
     e.preventDefault();
+
+    const req = await fetch(
+      "http://ec2-184-73-129-175.compute-1.amazonaws.com:3003/groups/recGroups/add/65355ca3b0554119a2f81acc",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          groupName: teamName,
+        }),
+      }
+    );
+
+    if (!req.ok) {
+      console.log("Error during joining");
+      return;
+    }
+    console.log("User joined successfuly");
   }
 
   return (
@@ -65,7 +82,7 @@ export default function JoinForm(props) {
         </div>
         <div className="my-3">
           <ProgressBar progress={count} inputCount={4} />
-          <form className="d-flex flex-column gap-3">
+          <form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
             <FormControl fullWidth variant="outlined" margin="normal">
               <InputLabel>school</InputLabel>
               <Select
@@ -151,7 +168,6 @@ export default function JoinForm(props) {
                 )}
               </Select>
             </FormControl>
-
             <div className="d-flex justify-content-center">
               <Button content="Join" style="primaryBtn" />
             </div>
