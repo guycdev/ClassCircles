@@ -7,10 +7,19 @@ import { IconButton, Tooltip } from "@mui/material";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
 export default function Teams() {
+  function getRandomAvatar() {
+    const randomIndex = Math.floor(Math.random() * 50);
+    const gender = Math.floor(Math.random() * 2);
+    if (gender) {
+      return `https://xsgames.co/randomusers/assets/avatars/male/${randomIndex}.jpg`;
+    }
+    return `https://xsgames.co/randomusers/assets/avatars/female/${randomIndex}.jpg`;
+  }
+
   const teams = [
     {
       teamName: "Alpha Warriors",
-      teamLogo: "https://xsgames.co/randomusers/avatar.php?g=pixel",
+      teamLogo: getRandomAvatar(),
       memberCount: 5,
       members: [
         "john.doe@alpha.com",
@@ -22,7 +31,7 @@ export default function Teams() {
     },
     {
       teamName: "Beta Champions",
-      teamLogo: "https://xsgames.co/randomusers/avatar.php?g=pixel",
+      teamLogo: getRandomAvatar(),
       memberCount: 4,
       members: [
         "michael.white@beta.com",
@@ -33,7 +42,7 @@ export default function Teams() {
     },
     {
       teamName: "Gamma Titans",
-      teamLogo: "https://xsgames.co/randomusers/avatar.php?g=pixel",
+      teamLogo: getRandomAvatar(),
       memberCount: 3,
       members: [
         "william.moore@gamma.com",
@@ -43,7 +52,7 @@ export default function Teams() {
     },
     {
       teamName: "Alpha Warriors",
-      teamLogo: "https://xsgames.co/randomusers/avatar.php?g=pixel",
+      teamLogo: getRandomAvatar(),
       memberCount: 5,
       members: [
         "john.doe@alpha.com",
@@ -55,7 +64,7 @@ export default function Teams() {
     },
     {
       teamName: "Beta Champions",
-      teamLogo: "https://xsgames.co/randomusers/avatar.php?g=pixel",
+      teamLogo: getRandomAvatar(),
       memberCount: 4,
       members: [
         "michael.white@beta.com",
@@ -66,7 +75,7 @@ export default function Teams() {
     },
     {
       teamName: "Gamma Titans",
-      teamLogo: "https://xsgames.co/randomusers/avatar.php?g=pixel",
+      teamLogo: getRandomAvatar(),
       memberCount: 3,
       members: [
         "william.moore@gamma.com",
