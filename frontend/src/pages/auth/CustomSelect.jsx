@@ -8,22 +8,23 @@ const CustomSelect = (props) => {
 
   const options = ["Option 1", "Option 2", "Option 3"];
 
-  const handleInputChange = (event, newInputValue) => {
+  const label = props.name[0].toUpperCase() + props.name.slice(1);
+
+  function handleInputChange(event, newInputValue) {
     setInputValue(newInputValue);
-  };
+    props.handleChange(event);
+  }
 
   return (
     <Autocomplete
       value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
-      inputValue={props.value}
-      onInputChange={props.handleChange}
+      onChange={(event, newValue) => setValue(newValue)}
+      inputValue={inputValue}
+      onInputChange={handleInputChange}
       options={options}
       fullWidth
       renderInput={(params) => (
-        <TextField {...params} label="School" name="school" />
+        <TextField {...params} label={label} name="school" />
       )}
       freeSolo // Allows adding custom values
       required

@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 
 import TextInput from "./TextInput";
 import CustomSelect from "./CustomSelect";
+import HobbiesSelect from "./HobbiesSelect";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -51,6 +52,14 @@ function Register() {
           value={formData.school}
         />
 
+        <CustomSelect
+          name="department"
+          handleChange={handleChange}
+          value={formData.department}
+        />
+
+        <HobbiesSelect />
+
         <Button
           type="submit"
           fullWidth
@@ -61,7 +70,7 @@ function Register() {
             color: "text.primary",
           }}
         >
-          Sign In
+          Create Account
         </Button>
       </Box>
     </>
