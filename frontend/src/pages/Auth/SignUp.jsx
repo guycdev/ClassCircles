@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import TextInput from "./TextInput";
-import CustomSelect from "./CustomSelect";
+import CustomSelect from "../../components/CustomSelect";
 import FormRedirect from "./FormRedirect";
 import Button from "../../components/Button";
 
