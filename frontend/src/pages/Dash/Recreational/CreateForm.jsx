@@ -35,7 +35,7 @@ export default function CreateForm(props) {
     };
     try {
       const userId = "someUserId";
-      const serverEndpoint = `http://localhost:3000/api/groups/addEduGroup?userId=${userId}`;
+      const serverEndpoint = `http://ec2-184-73-129-175.compute-1.amazonaws.com:3003/api/groups/addEduGroup?userId=${userId}`;
 
       const response = await fetch(serverEndpoint, {
         method: "POST",
