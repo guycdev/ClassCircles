@@ -26,7 +26,7 @@ export default function CreateForm(props) {
       groupName,
     };
 
-    const userId = "someUserId";
+    const userId = "65355ca3b0554119a2f81acc";
     const serverEndpoint = `http://ec2-184-73-129-175.compute-1.amazonaws.com:3003/api/groups/addEduGroup?userId=${userId}`;
 
     try {
