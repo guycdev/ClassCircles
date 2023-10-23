@@ -9,8 +9,6 @@ export default function JoinForm(props) {
 
   const groups = data;
 
-  console.log(groups);
-
   const [selectedSchool, setSelectedSchool] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [selectedClass, setSelectedClass] = useState("");
@@ -39,6 +37,30 @@ export default function JoinForm(props) {
       group.class === selectedClass
   );
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const req = await fetch(
+      "http://ec2-184-73-129-175.compute-1.amazonaws.com:3003/groups/eduGroups/add/65355ca3b0554119a2f81acc",
+
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          groupName: groupName,
+        }),
+      }
+    );
+
+    if (!req.ok) {
+      console.log("Error during joining");
+      return;
+    }
+    console.log("User joined successfuly");
+  }
+
   return (
     <motion.div
       className="col-xxl-6 col-12"
@@ -62,7 +84,7 @@ export default function JoinForm(props) {
         </div>
         <div className="my-3">
           <ProgressBar progress={count} inputCount={4} />
-          <form className="d-flex flex-column gap-3">
+          <form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
             <FormControl fullWidth variant="outlined" margin="normal">
               <InputLabel>School</InputLabel>
               <Select

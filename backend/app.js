@@ -330,6 +330,46 @@ app.post("/groups/recGroups/add/:userId", async (req, res) => {
   }
 });
 
+//Add user to edu group
+app.post("/groups/eduGroups/add/:userId", async (req, res) => {
+  try {
+    //
+    const { userId } = req.params;
+    const { groupName } = req.body;
+
+    const group = await eduGroups.findOne({ groupName: groupName });
+
+    if (!group) {
+      return res.status(404).json({ message: "Group not found..." });
+    }
+
+    const user = await User.findById(userId); // grab user object
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found..." });
+    }
+
+    if (!group.users.includes(user._id)) {
+      group.users.push(user);
+      group.memberCount += 1;
+    }
+    await group.save();
+
+    console.log("Here is group data...:");
+    console.log(group);
+    console.log("Here is user data...");
+    console.log(user);
+
+    return res
+      .status(200)
+      .json({ message: "User added to group successfully!" });
+  } catch (err) {
+    console.log("There has been an error adding a user object to eduGroups...");
+    console.log(err.message);
+    return res.status(500).json({ message: "Internal Server Error...." });
+  }
+});
+
 //Get emails//
 
 // Async function to get emails of group members.
