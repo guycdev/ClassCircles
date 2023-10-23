@@ -37,7 +37,7 @@ const TestimonialSection = () => {
                 100+
               </Typography>
               <Typography variant="h5" className="fw-bold">
-                Projects
+                Groups
               </Typography>
             </div>
             <div>
@@ -49,7 +49,7 @@ const TestimonialSection = () => {
                 300+
               </Typography>
               <Typography variant="h5" className="fw-bold">
-                Release
+                Students
               </Typography>
             </div>
           </StatBox>
